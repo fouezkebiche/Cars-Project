@@ -5,7 +5,7 @@ from django.db import models
 class Demande(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
-    Email = models.CharField(max_length=200)
+    Email = models.EmailField()
     mobile = models.CharField(max_length=100,default='123')
     address = models.CharField(max_length=200)
     postcode = models.CharField(max_length=200)
@@ -24,6 +24,7 @@ class Demande(models.Model):
     message = models.CharField(max_length=200)
     asking_price = models.CharField(max_length=200)
     Displacement = models.CharField(max_length=200)
+    
 
 
 

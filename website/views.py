@@ -12,7 +12,7 @@ from io import BytesIO
 
 
 def home(request):
-    return render(request,'home.html',{})
+    return render(request,'main.html',{})
 
 
 def contact_us_form(request):
@@ -21,7 +21,7 @@ def contact_us_form(request):
         form_data = {
             'First Name': request.POST.get('first_name'),
             'Last Name': request.POST.get('last_name'),
-            'Email': request.POST.get('Email'),
+            'Email': request.POST.get('email'),
             'Mobile': request.POST.get('mobile'),
             'Address': request.POST.get('address'),
             'Postcode': request.POST.get('postcode'),
@@ -42,12 +42,15 @@ def contact_us_form(request):
             'Displacement': request.POST.get('Displacement'),
         }
         
+        # Check for None values and create a list of valid field_name, field_value pairs
+        valid_fields = [(field_name, field_value) for field_name, field_value in form_data.items() if field_value is not None]
+        
         # Generate a PDF document in memory
         buffer = BytesIO()
         p = canvas.Canvas(buffer, pagesize=letter)
         y_coordinate = 750  # Starting Y-coordinate
 
-        for field_name, field_value in form_data.items():
+        for field_name, field_value in valid_fields:
             p.drawString(100, y_coordinate, field_name + ':')
             p.drawString(200, y_coordinate, field_value)
             y_coordinate -= 20  # Move the Y-coordinate down for the next field
@@ -63,12 +66,13 @@ def contact_us_form(request):
         recipient_list = ['kebichefouez@gmail.com']  # Replace with the recipient's email address
 
         email = EmailMessage(subject, message, from_email, recipient_list)
-        email.attach(f'{form_data["First Name"]}_contact_form.pdf', buffer.read(), 'application/pdf')
+        email.attach(f'{valid_fields[0][1]}_contact_form.pdf', buffer.read(), 'application/pdf')
         email.send()
 
         return render(request, 'home.html')
 
     return render(request, 'home.html')
+
 
 def main(request):
     return render(request,'main.html',{})
