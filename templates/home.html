@@ -113,7 +113,7 @@
 
 		
 							
-<<<<<<< HEAD
+
             <div class="content">
                 <div class="col-md-8 " style="padding: 10vh; display: flex; justify-content: center; align-items: center; margin-left: 30vh; ">
                     <form method="post" action="{% url 'contact_us_form' %}" enctype="multipart/form-data" style="box-shadow: 0px 0px 3px  3px rgba(39, 38, 38, 0.26);padding: 5vh;border-radius: 15px;">
@@ -153,12 +153,7 @@
                                 </div>
                                 
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group col-md-6">
-                                    <label for="postcode">Postcode</label>
-                                    <input type="text" name="postcode" class="form-control" id="postcode">
-                                </div>
-                            </div>
+                            
                             <div class="col-md-6">
                                 <div class="form-group col-md-6">
                                     <label for="postcode">Postcode</label>
@@ -289,86 +284,7 @@
                     </form>
                 </div>
             </div>
-=======
-		<div class="content">
-            <div class="col-md-8 " style="padding: 10vh; display: flex; justify-content: center; align-items: center; margin-left: 30vh; ">
-                <form method="post" action="{% url 'contact_us_form' %}" style="box-shadow: 0px 0px 3px  3px rgba(39, 38, 38, 0.26);padding: 5vh;border-radius: 15px;">
-                    {% csrf_token %}
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="first_name">First Name (Required)</label>
-                                <input type="text" name="first_name" class="form-control" id="first_name" placeholder="Enter your first name" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="last_name">Last Name (Required)</label>
-                                <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Enter your last name" required>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="email">Your Email (Required)</label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="mobile">Mobile (Required)</label>
-                                <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Enter your mobile number" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="address">Address</label>
-                                <input type="text" name="address" class="form-control" id="address" placeholder="Enter your address">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="postcode">Postcode</label>
-                                <input type="text" name="postcode" class="form-control" id="postcode" placeholder="Enter your postcode">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="location">Location</label>
-                                <input type="text" name="location" class="form-control" id="location" placeholder="Enter your location">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="brand">Brand (Required)</label>
-                                <input type="text" name="brand" class="form-control" id="brand" placeholder="Enter the car brand" required>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="message">Your Message</label>
-                                <textarea name="message" class="form-control" id="message" rows="3" placeholder="Enter your message"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="asking_price">Asking Price</label>
-                                <input type="text" name="asking_price" class="form-control" id="asking_price" placeholder="Enter your asking price">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="Displacement">Displacement (Ccm)</label>
-                                <input type="text" name="Displacement" class="form-control" id="Displacement" placeholder="Enter the displacement (Ccm)">
-                            </div>
-                        </div>
-                        <div class="col-12 d-flex flex-row justify-content-end mt-5">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
->>>>>>> 1f51488baec714b81764e596079bc46497f96b1b
+		
         
 		</section>
 		<!--/.contact-->
