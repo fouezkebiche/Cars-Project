@@ -5,8 +5,8 @@ from django.db import models
 class Demande(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
-    Email = models.CharField(max_length=200)
-    mobile = models.CharField(max_length=100,default='123')
+    Email = models.EmailField()
+    mobile = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
     postcode = models.CharField(max_length=200)
     location = models.CharField(max_length=200)
@@ -24,6 +24,11 @@ class Demande(models.Model):
     message = models.CharField(max_length=200)
     asking_price = models.CharField(max_length=200)
     Displacement = models.CharField(max_length=200)
+    image1 = models.ImageField(upload_to='photos/', blank=True, null=True)
+    image2 = models.ImageField(upload_to='photos/', blank=True, null=True)
+    image3 = models.ImageField(upload_to='photos/', blank=True, null=True)
+    image4 = models.ImageField(upload_to='photos/', blank=True, null=True)
+
 
 
 

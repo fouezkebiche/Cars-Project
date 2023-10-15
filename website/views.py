@@ -7,6 +7,11 @@ from django.http import HttpResponse
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from io import BytesIO
+from mimetypes import guess_type
+from PIL import Image
+from reportlab.lib.utils import ImageReader
+from .models import Demande
+from PIL import Image
 
 # Create your views here.
 
@@ -17,32 +22,38 @@ def home(request):
 
 def contact_us_form(request):
     if request.method == 'POST':
-        # Get form data
         form_data = {
-            'First Name': request.POST.get('first_name'),
-            'Last Name': request.POST.get('last_name'),
+            'first_name': request.POST.get('first_name'),
+            'last_name': request.POST.get('last_name'),
             'Email': request.POST.get('Email'),
-            'Mobile': request.POST.get('mobile'),
-            'Address': request.POST.get('address'),
-            'Postcode': request.POST.get('postcode'),
-            'Location': request.POST.get('location'),
-            'Brand': request.POST.get('brand'),
-            'Model': request.POST.get('model'),
-            'Vehicle Type': request.POST.get('vehicle_type'),
-            'Fuel': request.POST.get('fuel'),
-            'Gear Type': request.POST.get('gear_type'),
-            'Last MFK': request.POST.get('last_MFK'),
-            'Performance': request.POST.get('performance'),
-            'Mileage': request.POST.get('mileage'),
-            'Initial Registration': request.POST.get('initial_registration'),
-            'Color': request.POST.get('color'),
-            'Doors': request.POST.get('doors'),
-            'Message': request.POST.get('message'),
-            'Asking Price': request.POST.get('asking_price'),
+            'mobile': request.POST.get('mobile'),
+            'address': request.POST.get('address'),
+            'postcode': request.POST.get('postcode'),
+            'location': request.POST.get('location'),
+            'brand': request.POST.get('brand'),
+            'model': request.POST.get('model'),
+            'vehicle_type': request.POST.get('vehicle_type'),
+            'fuel': request.POST.get('fuel'),
+            'gear_type': request.POST.get('gear_type'),
+            'last_MFK': request.POST.get('last_MFK'),
+            'performance': request.POST.get('performance'),
+            'mileage': request.POST.get('mileage'),
+            'initial_registration': request.POST.get('initial_registration'),
+            'color': request.POST.get('color'),
+            'doors': request.POST.get('doors'),
+            'message': request.POST.get('message'),
+            'asking_price': request.POST.get('asking_price'),
             'Displacement': request.POST.get('Displacement'),
         }
-        
-        # Generate a PDF document in memory
+
+        image_files = []
+        for i in range(1, 5):
+            image_field_name = f'image{i}'
+            image_file = request.FILES.get(image_field_name)
+            if image_file:
+                image_files.append((image_field_name, image_file.read()))
+
+        # Create a PDF document with the form data and image attachments
         buffer = BytesIO()
         p = canvas.Canvas(buffer, pagesize=letter)
         y_coordinate = 750  # Starting Y-coordinate
@@ -51,24 +62,50 @@ def contact_us_form(request):
             p.drawString(100, y_coordinate, field_name + ':')
             p.drawString(200, y_coordinate, field_value)
             y_coordinate -= 20  # Move the Y-coordinate down for the next field
-        
+
         # Save and close the PDF
         p.save()
         buffer.seek(0)
 
-        # Send the email with the PDF attachment
+        # Save the form data to the Demande model
+        demande = Demande(**form_data)
+        demande.save()
+
+        # Save image files to the corresponding fields in the Demande model
+        for i in range(1, 5):
+            image_field_name = f'image{i}'
+            image_file = request.FILES.get(image_field_name)
+            if image_file:
+                setattr(demande, image_field_name, image_file)
+        demande.save()  # Save the model again after updating the images
+
+        # Send the email with the PDF attachment and image files
         subject = 'Contact Form Submission'
-        message = 'Please find the attached PDF for the contact form submission.'
+        message = 'Please find the attached PDF and images for the contact form submission.'
         from_email = 'your_email@gmail.com'  # Replace with your Gmail address
         recipient_list = ['kebichefouez@gmail.com']  # Replace with the recipient's email address
 
         email = EmailMessage(subject, message, from_email, recipient_list)
-        email.attach(f'{form_data["First Name"]}_contact_form.pdf', buffer.read(), 'application/pdf')
+        email.attach(f'{form_data["first_name"]}_contact_form.pdf', buffer.read(), 'application/pdf')
+
+        # Attach image files with content type based on file format and resize them
+        for image_field_name, image_content in image_files:
+            content_type = 'image/png' if image_field_name.endswith('.png') else 'image/jpeg'
+            
+            # Resize the image to a reasonable size (e.g., 800x600)
+            img = Image.open(BytesIO(image_content))
+            img.thumbnail((800, 600))
+            resized_image_content = BytesIO()
+            img.save(resized_image_content, format='JPEG' if content_type == 'image/jpeg' else 'PNG')
+            
+            email.attach(image_field_name, resized_image_content.getvalue(), content_type)
+
         email.send()
 
-        return render(request, 'home.html')
+        return HttpResponse("Form submitted successfully.")
 
     return render(request, 'home.html')
+
 
 def main(request):
     return render(request,'main.html',{})
