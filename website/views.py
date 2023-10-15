@@ -17,12 +17,13 @@ from PIL import Image
 
 
 def home(request):
-    return render(request,'home.html',{})
+    return render(request,'main.html',{})
 
 
 def contact_us_form(request):
     if request.method == 'POST':
         form_data = {
+<<<<<<< HEAD
             'first_name': request.POST.get('first_name'),
             'last_name': request.POST.get('last_name'),
             'Email': request.POST.get('Email'),
@@ -54,11 +55,40 @@ def contact_us_form(request):
                 image_files.append((image_field_name, image_file.read()))
 
         # Create a PDF document with the form data and image attachments
+=======
+            'First Name': request.POST.get('first_name'),
+            'Last Name': request.POST.get('last_name'),
+            'Email': request.POST.get('email'),
+            'Mobile': request.POST.get('mobile'),
+            'Address': request.POST.get('address'),
+            'Postcode': request.POST.get('postcode'),
+            'Location': request.POST.get('location'),
+            'Brand': request.POST.get('brand'),
+            'Model': request.POST.get('model'),
+            'Vehicle Type': request.POST.get('vehicle_type'),
+            'Fuel': request.POST.get('fuel'),
+            'Gear Type': request.POST.get('gear_type'),
+            'Last MFK': request.POST.get('last_MFK'),
+            'Performance': request.POST.get('performance'),
+            'Mileage': request.POST.get('mileage'),
+            'Initial Registration': request.POST.get('initial_registration'),
+            'Color': request.POST.get('color'),
+            'Doors': request.POST.get('doors'),
+            'Message': request.POST.get('message'),
+            'Asking Price': request.POST.get('asking_price'),
+            'Displacement': request.POST.get('Displacement'),
+        }
+        
+        # Check for None values and create a list of valid field_name, field_value pairs
+        valid_fields = [(field_name, field_value) for field_name, field_value in form_data.items() if field_value is not None]
+        
+        # Generate a PDF document in memory
+>>>>>>> 1f51488baec714b81764e596079bc46497f96b1b
         buffer = BytesIO()
         p = canvas.Canvas(buffer, pagesize=letter)
         y_coordinate = 750  # Starting Y-coordinate
 
-        for field_name, field_value in form_data.items():
+        for field_name, field_value in valid_fields:
             p.drawString(100, y_coordinate, field_name + ':')
             p.drawString(200, y_coordinate, field_value)
             y_coordinate -= 20  # Move the Y-coordinate down for the next field
@@ -86,6 +116,7 @@ def contact_us_form(request):
         recipient_list = ['kebichefouez@gmail.com']  # Replace with the recipient's email address
 
         email = EmailMessage(subject, message, from_email, recipient_list)
+<<<<<<< HEAD
         email.attach(f'{form_data["first_name"]}_contact_form.pdf', buffer.read(), 'application/pdf')
 
         # Attach image files with content type based on file format and resize them
@@ -100,6 +131,9 @@ def contact_us_form(request):
             
             email.attach(image_field_name, resized_image_content.getvalue(), content_type)
 
+=======
+        email.attach(f'{valid_fields[0][1]}_contact_form.pdf', buffer.read(), 'application/pdf')
+>>>>>>> 1f51488baec714b81764e596079bc46497f96b1b
         email.send()
 
         return HttpResponse("Form submitted successfully.")
