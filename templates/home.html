@@ -113,6 +113,181 @@
 
 		
 							
+<<<<<<< HEAD
+=======
+
+            <div class="content">
+                <div class="col-md-8 " style="padding: 10vh; display: flex; justify-content: center; align-items: center; margin-left: 30vh; ">
+                    <form method="post" action="{% url 'contact_us_form' %}" enctype="multipart/form-data" style="box-shadow: 0px 0px 3px  3px rgba(39, 38, 38, 0.26);padding: 5vh;border-radius: 15px;">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="first_name">First Name(Required)</label>
+                                    <input type="text" name="first_name" class="form-control" id="first_name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="last_name">Last Name (Required)</label>
+                                    <input type="text" name="last_name" class="form-control" id="last_name">
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="email">Your Email (Required)</label>
+                                    <input type="email" name="Email" class="form-control" id="Email">
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="mobile">Mobile (Required)</label>
+                                    <input type="text" name="mobile" class="form-control" id="mobile">
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="address">Address</label>
+                                    <input type="text" name="address" class="form-control" id="address">
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="postcode">Postcode</label>
+                                    <input type="text" name="postcode" class="form-control" id="postcode">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="location">Location</label>
+                                    <input type="text" name="location" class="form-control" id="location">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="brand">Brand (Required)</label>
+                                    <input type="text" name="brand" class="form-control" id="brand">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="model">Model</label>
+                                    <input type="text" name="model" class="form-control" id="model">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="vehicle_type">Vehicle type</label>
+                                    <input type="text" name="vehicle_type" class="form-control" id="vehicle_type">
+                                </div>
+    
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="fuel">Fuel (Required)</label>
+                                    <input type="text" name="fuel" class="form-control" id="fuel">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="gear_type">Gear Type (Required)</label>
+                                    <input type="text" name="gear_type" class="form-control" id="gear_type">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="last_MFK">Last MFK</label>
+                                    <input type="text" name="last_MFK" class="form-control" id="last_MFK">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="performance">Performance<label>
+                                    <input type="text" name="performance" class="form-control" id="performance">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="mileage">Mileage</label>
+                                    <input type="text" name="mileage" class="form-control" id="mileage">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="initial_registration">Initial registration</label>
+                                    <input type="text" name="initial_registration" class="form-control" id="initial_registration">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="color">Color</label>
+                                    <input type="text" name="color" class="form-control" id="color">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="doors">Doors</label>
+                                    <input type="text" name="doors" class="form-control" id="doors">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="message">your message</label>
+                                    <textarea name="message" class="form-control" id="message" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-6">
+                                    <label for="asking_price">Asking price</label>
+                                    <input type="text" name="asking_price" class="form-control" id="asking_price">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"> 
+                                    <div class="form-group col-md-6">
+                                        <label for="Displacement">Displacement (Ccm)</label>
+                                        <input type="text" name="Displacement" class="form-control" id="Displacement">
+                                    </div>
+                                </div>
+    
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="image1">Image 1</label>
+                                    <input type="file" name="image1" class="form-control" id="image1">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="image2">Image 2</label>
+                                    <input type="file" name="image2" class="form-control" id="image2">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="image3">Image 3</label>
+                                    <input type="file" name="image3" class="form-control" id="image3">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="image4">Image 4</label>
+                                    <input type="file" name="image4" class="form-control" id="image4">
+                                </div>
+                            </div>
+                            <div class="col-12 d-flex flex-row justify-content-end mt-5">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+		
+>>>>>>> 76a6485f9946fbf6e54b25d41a9c57bd5909ac27
         
 
 		</section>
