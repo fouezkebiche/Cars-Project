@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import whitenoise
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,11 +34,6 @@ ALLOWED_HOSTS = ['cars-g02b.onrender.com','']
 # Application definition
 
 INSTALLED_APPS = [
-    
-<<<<<<< HEAD
-=======
-    'jazzmin',
->>>>>>> 76a6485f9946fbf6e54b25d41a9c57bd5909ac27
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

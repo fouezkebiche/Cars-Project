@@ -23,10 +23,6 @@ def home(request):
 def contact_us_form(request):
     if request.method == 'POST':
         form_data = {
-<<<<<<< HEAD
-=======
-
->>>>>>> 76a6485f9946fbf6e54b25d41a9c57bd5909ac27
             'first_name': request.POST.get('first_name'),
             'last_name': request.POST.get('last_name'),
             'Email': request.POST.get('Email'),
@@ -58,19 +54,10 @@ def contact_us_form(request):
                 image_files.append((image_field_name, image_file.read()))
 
         # Create a PDF document with the form data and image attachments
-
-<<<<<<< HEAD
-=======
-        
->>>>>>> 76a6485f9946fbf6e54b25d41a9c57bd5909ac27
         # Check for None values and create a list of valid field_name, field_value pairs
         valid_fields = [(field_name, field_value) for field_name, field_value in form_data.items() if field_value is not None]
         
         # Generate a PDF document in memory
-<<<<<<< HEAD
-=======
-
->>>>>>> 76a6485f9946fbf6e54b25d41a9c57bd5909ac27
         buffer = BytesIO()
         p = canvas.Canvas(buffer, pagesize=letter)
         y_coordinate = 750  # Starting Y-coordinate
@@ -103,10 +90,7 @@ def contact_us_form(request):
         recipient_list = ['kebichefouez@gmail.com']  # Replace with the recipient's email address
 
         email = EmailMessage(subject, message, from_email, recipient_list)
-<<<<<<< HEAD
-=======
 
->>>>>>> 76a6485f9946fbf6e54b25d41a9c57bd5909ac27
         email.attach(f'{form_data["first_name"]}_contact_form.pdf', buffer.read(), 'application/pdf')
 
         # Attach image files with content type based on file format and resize them
@@ -121,12 +105,12 @@ def contact_us_form(request):
             
             email.attach(image_field_name, resized_image_content.getvalue(), content_type)
 
-<<<<<<< HEAD
-=======
+
 
         email.attach(f'{valid_fields[0][1]}_contact_form.pdf', buffer.read(), 'application/pdf')
 
->>>>>>> 76a6485f9946fbf6e54b25d41a9c57bd5909ac27
+
+
         email.send()
 
         return redirect('home')
