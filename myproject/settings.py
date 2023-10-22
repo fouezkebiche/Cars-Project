@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import whitenoise
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,8 +34,6 @@ ALLOWED_HOSTS = ['your_domain_name', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    
-    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

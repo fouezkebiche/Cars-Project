@@ -23,7 +23,6 @@ def home(request):
 def contact_us_form(request):
     if request.method == 'POST':
         form_data = {
-
             'first_name': request.POST.get('first_name'),
             'last_name': request.POST.get('last_name'),
             'Email': request.POST.get('Email'),
@@ -55,13 +54,10 @@ def contact_us_form(request):
                 image_files.append((image_field_name, image_file.read()))
 
         # Create a PDF document with the form data and image attachments
-
-        
         # Check for None values and create a list of valid field_name, field_value pairs
         valid_fields = [(field_name, field_value) for field_name, field_value in form_data.items() if field_value is not None]
         
         # Generate a PDF document in memory
-
         buffer = BytesIO()
         p = canvas.Canvas(buffer, pagesize=letter)
         y_coordinate = 750  # Starting Y-coordinate
@@ -110,11 +106,14 @@ def contact_us_form(request):
             email.attach(image_field_name, resized_image_content.getvalue(), content_type)
 
 
+
         email.attach(f'{valid_fields[0][1]}_contact_form.pdf', buffer.read(), 'application/pdf')
+
+
 
         email.send()
 
-        return HttpResponse("Form submitted successfully.")
+        return redirect('home')
 
     return render(request, 'home.html')
 
