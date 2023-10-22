@@ -36,7 +36,21 @@
         <!--owl.carousel.css-->
         <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
 		<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
-		
+		<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<!-- <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
+  rel="stylesheet"
+/> -->
         <!--bootstrap.min.css-->
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 		
@@ -93,8 +107,25 @@
 			right: 10px; /* Adjust the position as needed */
 		}
 		
-		
-		
+		.card img{
+			width:300px;
+			height: 150px;
+		}
+		.wpb_column{
+			margin-left: 2vh;
+		}
+		.card{
+			margin: 2vh;
+		}
+		.text_condition{
+			margin-left: 15vh;
+			margin-right: 15vh;
+		}
+		@media screen and (max-width: 600px) {
+			.card{
+				margin-left: 5px;
+			}
+		  }
 	</style>
 	<body>
 		<!--[if lte IE 9]>
@@ -108,7 +139,7 @@
 			<div class="top-area">
 				<div class="header-area">
 					<!-- Start Navigation -->
-				    <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+				    <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  style="position: fixed; width: 100%; background-color: rgba(0, 0, 0, 0.767);"   data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
 
 				        <div class="container">
 
@@ -117,7 +148,7 @@
 				                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
 				                    <i class="fa fa-bars"></i>
 				                </button>
-				                <a class="navbar-brand" href="{% url "home" %}">logo<span></span></a>
+				                <a class="navbar-brand"  href="{% url "home" %}"><img src="" alt="LOGO" srcset=""><span></span></a>
 
 				            </div><!--/.navbar-header-->
 				            <!-- End Header Navigation -->
@@ -148,7 +179,7 @@
 					<p>
 						Your Car, Our Cash – Sell Smarter, Drive Happier!
 					</p>
-					<button class="welcome-btn" onclick="window.location.href='#'">contact us</button>
+					{% comment %} <button class="welcome-btn" onclick="window.location.href='#'">contact us</button> {% endcomment %}
 				</div>
 			</div>
 
@@ -158,492 +189,123 @@
 		<!--welcome-hero end -->
 
 		<!--service start -->
-		{% comment %} <section id="service" class="service">
+		 <section id="service" class="service">
 			<div class="container">
-				<div class="service-content">
-					<div class="row">
-						<div class="col-md-4 col-sm-6">
-							<div class="single-service-item">
-								<div class="single-service-icon">
-									<i class="flaticon-car"></i>
-								</div>
-								<h2><a href="#">largest dealership <span> of</span> car</a></h2>
-								<p>
-									Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia.  
-								</p>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<div class="single-service-item">
-								<div class="single-service-icon">
-									<i class="flaticon-car-repair"></i>
-								</div>
-								<h2><a href="#">unlimited repair warrenty</a></h2>
-								<p>
-									Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia.  
-								</p>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<div class="single-service-item">
-								<div class="single-service-icon">
-									<i class="flaticon-car-1"></i>
-								</div>
-								<h2><a href="#">insurence support</a></h2>
-								<p>
-									Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia. 
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div><!--/.container-->
-
-		</section><!--/.service--> {% endcomment %}
-		<!--service end-->
-
-		<!--new-cars start -->
-		<section id="new-cars" class="new-cars">
-			<div class="container">
-				<div class="section-header">
-					<p>checkout <span>Some</span> Famous cars</p>
-					<h2>Famous cars</h2>
-				</div><!--/.section-header-->
-				<div class="new-cars-outer-container">
-					<i class="material-icons" id="prevBtn">keyboard_arrow_left</i>
-				<div class="new-cars-content">
-				
-
-					<div class="owl-theme " id="new-cars-carousel">
-						<div class="new-cars-item" data-aos="fade-right" data-aos-delay="100" >
-							<div class="single-new-cars-item">
-								<div class="row">
-									<div class="col-md-7 col-sm-12">
-										<div class="new-cars-img">
-											<img src="{% static 'images/new-cars-model/ncm1.png' %}" alt="img"/>
-										</div><!--/.new-cars-img-->
-									</div>
-									<div class="col-md-5 col-sm-12">
-										<div class="new-cars-txt">
-											<h2><a href="#">chevrolet camaro <span> za100</span></a></h2>
-											<p>
-												The Chevrolet Camaro ZA100 is a high-performance sports car known for its
-												 iconic American muscle car styling. With powerful V8 engines, precise handling,
-												  and a bold design, the Camaro ZA100 is a symbol of American automotive performance and style.											</p>
-											
-											<button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">
-												view details
-											</button>
-										</div><!--/.new-cars-txt-->	
-									</div><!--/.col-->
-								</div><!--/.row-->
-							</div><!--/.single-new-cars-item-->
-						</div><!--/.new-cars-item-->
-						<div class="new-cars-item" data-aos="fade-right" data-aos-delay="200"  >
-							<div class="single-new-cars-item">
-								<div class="row">
-									<div class="col-md-7 col-sm-12">
-										<div class="new-cars-img">
-											<img src="{% static 'images/new-cars-model/ncm2.png' %}" alt="img"/>
-										</div><!--/.new-cars-img-->
-									</div>
-									<div class="col-md-5 col-sm-12">
-										<div class="new-cars-txt">
-											<h2><a href="#">BMW series-3 wagon</a></h2>
-											<p>
-												The BMW 3 Series Wagon is a practical and versatile luxury car that combines the 
-												agility and driving dynamics of the 3 Series sedan with additional cargo space. 
-												It offers a balance of sportiness and utility,
-												 making it an ideal choice for those who value both performance and practicality.											</p>
-											
-											<button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">
-												view details
-											</button>
-										</div><!--/.new-cars-txt-->	
-									</div><!--/.col-->
-								</div><!--/.row-->	
-							</div><!--/.single-new-cars-item-->
-						</div><!--/.new-cars-item-->
-						<div class="new-cars-item"  data-aos="fade-right" data-aos-delay="300">
-							<div class="single-new-cars-item">
-								<div class="row">
-									<div class="col-md-7 col-sm-12">
-										<div class="new-cars-img">
-											<img src="{% static 'images/new-cars-model/ncm3.png' %}" alt="img"/>
-										</div><!--/.new-cars-img-->
-									</div>
-									<div class="col-md-5 col-sm-12">
-										<div class="new-cars-txt">
-											<h2><a href="#">ferrari 488 superfast</a></h2>
-											<p>
-												The Ferrari 488 Superfast is an exotic supercar that lives up to its
-												 name with blistering speed and breathtaking design. With a turbocharged V8 engine,
-												  it offers exceptional performance, precise handling, and a luxurious interior. 
-												The 488 Superfast is a symbol of Italian automotive excellence and speed.
-											</p>
-											<button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">
-												view details
-											</button>
-										</div><!--/.new-cars-txt-->	
-									</div><!--/.col-->
-								</div><!--/.row-->
-							</div><!--/.single-new-cars-item-->
-						    
-				
-						</div>
-						
-						
-					</div>
-				</div>
-				<i class="material-icons" id="nextBtn">keyboard_arrow_right</i><!--/#new-cars-carousel-->
-				<!--/.new-cars-content-->
-			</div>
-			</div><!--/.container-->
-
-		</section><!--/.new-cars-->
-		<!--new-cars end -->
-
-		<!--featured-cars start -->
-		<section id="featured-cars" class="featured-cars">
-			<div class="container">
-				<div class="section-header">
-					<p>checkout <span>the</span> featured cars</p>
-					<h2>featured cars</h2>
-				</div><!--/.section-header-->
-				<div class="featured-cars-content">
-					<div class="row">
-						<div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-							<div class="single-featured-cars">
-								<div class="featured-img-box">
-									<div class="featured-cars-img">
-										<img src="{% static 'images/featured-cars/fc1.png' %}" alt="cars">
-									</div>
-									<div class="featured-model-info">
-										<p>
-											model: 2017
-											<span class="featured-mi-span"> 3100 mi</span> 
-											<span class="featured-hp-span"> 240HP</span>
-											 automatic
-										</p>
-									</div>
-								</div>
-								<div class="featured-cars-txt">
-									<h2><a href="#">BMW 6-series gran coupe</a></h2>
-									<h3>$89,395</h3>
-									
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
-							<div class="single-featured-cars">
-								<div class="featured-img-box">
-									<div class="featured-cars-img">
-										<img src="{% static 'images/featured-cars/fc2.png' %}" alt="cars">
-									</div>
-									<div class="featured-model-info">
-										<p>
-											model: 2017
-											<span class="featured-mi-span"> 3100 mi</span> 
-											<span class="featured-hp-span"> 240HP</span>
-											 automatic
-										</p>
-									</div>
-								</div>
-								<div class="featured-cars-txt">
-									<h2><a href="#">chevrolet camaro <span>wmv20</span></a></h2>
-									<h3>$66,575</h3>
-									
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
-							<div class="single-featured-cars">
-								<div class="featured-img-box">
-									<div class="featured-cars-img">
-										<img src="{% static 'images/featured-cars/fc3.png' %}" alt="cars">
-									</div>
-									<div class="featured-model-info">
-										<p>
-											model: 2017
-											<span class="featured-mi-span"> 3100 mi</span> 
-											<span class="featured-hp-span"> 240HP</span>
-											 automatic
-										</p>
-									</div>
-								</div>
-								<div class="featured-cars-txt">
-									<h2><a href="#">lamborghini <span>v520</span></a></h2>
-									<h3>$125,250</h3>
-								
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
-							<div class="single-featured-cars">
-								<div class="featured-img-box">
-									<div class="featured-cars-img">
-										<img src="{% static 'images/featured-cars/fc4.png' %}" alt="cars">
-									</div>
-									<div class="featured-model-info">
-										<p>
-											model: 2017
-											<span class="featured-mi-span"> 3100 mi</span> 
-											<span class="featured-hp-span"> 240HP</span>
-											 automatic
-										</p>
-									</div>
-								</div>
-								<div class="featured-cars-txt">
-									<h2><a href="#">audi <span> a3</span> sedan</a></h2>
-									<h3>$95,500</h3>
-									
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-							<div class="single-featured-cars">
-								<div class="featured-img-box">
-									<div class="featured-cars-img">
-										<img src="{% static 'images/featured-cars/fc4.png' %}" alt="cars">
-									</div>
-									<div class="featured-model-info">
-										<p>
-											model: 2017
-											<span class="featured-mi-span"> 3100 mi</span> 
-											<span class="featured-hp-span"> 240HP</span>
-											 automatic
-										</p>
-									</div>
-								</div>
-								<div class="featured-cars-txt">
-									<h2><a href="#">infiniti <span>z5</span></a></h2>
-									<h3>$36,850</h3>
-									
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
-							<div class="single-featured-cars">
-								<div class="featured-img-box">
-									<div class="featured-cars-img">
-										<img src="{% static 'images/featured-cars/fc5.png' %}" alt="cars">
-									</div>
-									<div class="featured-model-info">
-										<p>
-											model: 2017
-											<span class="featured-mi-span"> 3100 mi</span> 
-											<span class="featured-hp-span"> 240HP</span>
-											 automatic
-										</p>
-									</div>
-								</div>
-								<div class="featured-cars-txt">
-									<h2><a href="#">porsche <span>718</span> cayman</a></h2>
-									<h3>$48,500</h3>
-								
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
-							<div class="single-featured-cars">
-								<div class="featured-img-box">
-									<div class="featured-cars-img">
-										<img src="{% static 'images/featured-cars/fc7.png' %}" alt="cars">
-									</div>
-									<div class="featured-model-info">
-										<p>
-											model: 2017
-											<span class="featured-mi-span"> 3100 mi</span> 
-											<span class="featured-hp-span"> 240HP</span>
-											 automatic
-										</p>
-									</div>
-								</div>
-								<div class="featured-cars-txt">
-									<h2><a href="#"><span>bmw 8-</span>series coupe</a></h2>
-									<h3>$56,000</h3>
-									
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
-							<div class="single-featured-cars">
-								<div class="featured-img-box">
-									<div class="featured-cars-img">
-										<img src="{% static 'images/featured-cars/fc8.png' %}" alt="cars">
-									</div>
-									<div class="featured-model-info">
-										<p>
-											model: 2017
-											<span class="featured-mi-span"> 3100 mi</span> 
-											<span class="featured-hp-span"> 240HP</span>
-											 automatic
-										</p>
-									</div>
-								</div>
-								<div class="featured-cars-txt">
-									<h2><a href="#">BMW <span> x</span>series-6</a></h2>
-									<h3>$75,800</h3>
-									
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div><!--/.container-->
-
-		</section><!--/.featured-cars-->
-		<!--featured-cars end -->
-
-		<!-- clients-say strat -->
+			<div class="topcontent d-flex flex-column justify-content-center align-item-center">
+<h1 class="text-center">How does the sale of my car or motorhome work?</h1>
+<p  class="text-center">
+	We buy your vehicle or regardless of the type, at the highest price, against cash payment and with immediate collection. Contact us today to receive a non-binding offer.
 	
-		<!-- clients-say end -->
+	</p>
+	<h1 class="text-center">OUR LINE <span style="color: red;">+41 76 400 22 22</span></h1>
+</div> 
+<div class="offers " style="display: flex; justify-content: space-between; flex-direction: row; flex-wrap: wrap; margin-top: 5vh;margin-bottom: 5vh; align-items: center;">
 
-		<!--brand strat -->
-		<section id="brand"  class="brand" >
-			<div class="container ">
-				<div class="brand-area" >
-					<div class="owl-carousel owl-theme brand-item ">
-						<div class="item ">
-							<a href="#">
-								<img src="{% static 'images/brand/br1.png' %}" alt="brand-image" data-aos="fade-up" />
-							</a>
-						</div><!--/.item-->
-						<div class="item">
-							<a href="#">
-								<img src="{% static 'images/brand/br2.png' %}" alt="brand-image" data-aos="fade-up"/>
-							</a>
-						</div><!--/.item-->
-						<div class="item">
-							<a href="#">
-								<img src="{% static 'images/brand/br3.png' %}" alt="brand-image" data-aos="fade-up" />
-							</a>
-						</div><!--/.item-->
-						<div class="item">
-							<a href="#">
-								<img src="{% static 'images/brand/br4.png' %}" alt="brand-image" data-aos="fade-up" />
-							</a>
-						</div><!--/.item-->
 
-						<div class="item">
-							<a href="#">
-								<img src="{% static 'images/brand/br5.png' %}" alt="brand-image" data-aos="fade-up" />
-							</a>
-						</div><!--/.item-->
+	<div class="card" style="width: 25rem;" data-aos="fade-up" data-aos-delay="200" >
+		<img src="{% static 'images\sharing-best-offer-650x596.jpeg' %}" class="card-img-top" alt="...">
+		<div class="card-body">
+		  <h5 class="card-title">Offer</h5>
+		  <p class="card-text">Get your non-binding offer with us.</p>
+		
+		</div>
+	  </div>
+	  <div class="card" style="width: 25rem;" data-aos="fade-up" data-aos-delay="300" >
+		<img src="{% static 'images\successful-business-peolple-handshaking-after-good-deal_1421-35.avif' %}" class="card-img-top" alt="...">
+		<div class="card-body">
+		  <h5 class="card-title">Deal</h5>
+		  <p class="card-text">Let's make the deal <br>  perfect.</p>
+		
+		</div>
+	  </div>
+	  <div class="card" style="width: 25rem;" data-aos="fade-up" data-aos-delay="400" >
+		<img src="{% static 'images\AdobeStock_21352107.jpeg' %}" class="card-img-top" alt="...">
+		<div class="card-body">
+		  <h5 class="card-title">Cash payment</h5>
+		  <p class="card-text">Enjoy uncomplicated cash payments.</p>
+		
+		</div>
+	  </div>
+	  <div class="card" style="width: 25rem;" data-aos="fade-up" data-aos-delay="500" >
+		<img src="{% static 'images\truck-trailer-transports-new-cars-rides-on-PVWRMTQ.jpg' %}" class="card-img-top" alt="...">
+		<div class="card-body">
+		  <h5 class="card-title">Collection</h5>
+		  <p class="card-text">Determine the time and place of pickup.</p>
+		
+		</div>
+	  </div>
+</div>
+<div class="map  " style="display: flex; justify-content: center; align-items: center; margin-bottom: 10vh;" data-aos="fade-right" data-aos-delay="900">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2715.5033786405716!2d8.34154407595423!3d47.108805622220615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDfCsDA2JzMxLjciTiA4wrAyMCczOC44IkU!5e0!3m2!1sen!2sdz!4v1697779822169!5m2!1sen!2sdz" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
+				</div></section>
 
-						<div class="item">
-							<a href="#">
-								<img src="{% static 'images/brand/br6.png' %}" alt="brand-image" data-aos="fade-up" />
-							</a>
-						</div><!--/.item-->
-					</div><!--/.owl-carousel-->
-				</div><!--/.clients-area-->
-
-			</div>
-
-		</section><!--/brand-->	
-		<!--brand end -->
-
-		<!--blog start -->
-		<section id="blog" class="blog"></section><!--/.blog-->
-		<!--blog end -->
-
-		<!--contact start-->
-		<footer id="contact"  class="contact">
-			<div class="container">
-				<div class="footer-top">
-					<div class="row">
-						<div class="col-md-3 col-sm-6">
-							<div class="single-footer-widget">
-								<div class="footer-logo">
-									<a href="{% url 'home' %}">logo</a>
-								</div>
-								<p>
-									Fast Cash for Your Four-Wheeled Treasure!								</p>
-								<div class="footer-contact">
-									<p>info@themesine.com</p>
-									<p>+1 (885) 2563154554</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2 col-sm-6">
-							<div class="single-footer-widget">
-								<h2>about devloon</h2>
-								<ul>
-									<li><a href="#">about us</a></li>
-									<li><a href="#">career</a></li>
-									<li><a href="#">terms <span> of service</span></a></li>
-									<li><a href="#">privacy policy</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-3 col-xs-12">
-							<div class="single-footer-widget">
-								<h2>top brands</h2>
-								<div class="row">
-									<div class="col-md-7 col-xs-6">
-										<ul>
-											<li><a href="#">BMW</a></li>
-											<li><a href="#">lamborghini</a></li>
-											<li><a href="#">camaro</a></li>
-											<li><a href="#">audi</a></li>
-											<li><a href="#">infiniti</a></li>
-											<li><a href="#">nissan</a></li>
-										</ul>
-									</div>
-									<div class="col-md-5 col-xs-6">
-										<ul>
-											<li><a href="#">ferrari</a></li>
-											<li><a href="#">porsche</a></li>
-											<li><a href="#">land rover</a></li>
-											<li><a href="#">aston martin</a></li>
-											<li><a href="#">mersedes</a></li>
-											<li><a href="#">opel</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-offset-1 col-md-3 col-sm-6">
-							<div class="single-footer-widget">
-								<h2>news letter</h2>
-								<div class="footer-newsletter">
-									<p>
-										Subscribe to get latest news  update and informations
-									</p>
-								</div>
-								<div class="hm-foot-email">
-									<div class="foot-email-box">
-										<input type="text" class="form-control" placeholder="Add Email">
-									</div><!--/.foot-email-box-->
-									<div class="foot-email-subscribe">
-										<span><i class="fa fa-arrow-right"></i></span>
-									</div><!--/.foot-email-icon-->
-								</div><!--/.hm-foot-email-->
-							</div>
-						</div>
-					</div>
+				<div class="text_condition">
+					<h2 style="text-align: center; font-size:35px"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Your specialist in car purchasing in Zurich, Aargau, Basel, Bern, St. Gallen, Lucerne and throughout Switzerland</font></font></strong></h2>
+					<br/>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Anyone who wants to sell their car is often at a loss. </font><font style="vertical-align: inherit;">Where can I find solvent and serious buyers? </font><font style="vertical-align: inherit;">How do I not sell my car short? </font><font style="vertical-align: inherit;">Do I even have time to take care of selling my car myself? </font><font style="vertical-align: inherit;">All of these questions are easily answered with our car purchase, because here you will find reputable buyers who will buy your car at a reasonable price and thus save you time. </font><font style="vertical-align: inherit;">Whether Zurich, Aargau, Basel, Bern, St. Gallen or Lucerne – we work for you throughout Switzerland and are therefore always exactly where you need us.</font></font></p>
+		<br/>
+		<h3 style=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Buying a car – your advantages</font></font></h3>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">When you use our car purchasing service, you can expect numerous advantages. </font><font style="vertical-align: inherit;">On the one hand, you always get the best price for your car from us and can therefore be sure that you are not wasting money unnecessarily. </font><font style="vertical-align: inherit;">This saved money can then be invested in a new car, for example. </font><font style="vertical-align: inherit;">As soon as we have concluded a deal that both parties are satisfied with, we will also immediately give you the agreed amount in cash. </font><font style="vertical-align: inherit;">So you don't have to wait for the bank to transfer the money to your account. </font><font style="vertical-align: inherit;">At the same time, the condition of your car doesn't matter because we also buy damaged cars that a normal buyer probably wouldn't buy.</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">However, our car purchase is even more straightforward because we are also happy to pick up your car for you. </font><font style="vertical-align: inherit;">No matter whether you live in Zurich, Aargau, Basel, Bern, St. Gallen or Lucerne – we will come to your desired pickup location throughout Switzerland. </font><font style="vertical-align: inherit;">Another convincing advantage is of course the time you save with us. </font><font style="vertical-align: inherit;">You don't have to take photos of the car, place any sales advertisements online and, as a result, you don't have to deal with dubious buyers. </font><font style="vertical-align: inherit;">So if a new car is already on the horizon and things have to happen quickly, we are the right people to contact.</font></font></p>
+		<br/>
+		<h3 style=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Car purchase – conditions</font></font></h3>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">If you would like to take advantage of our car purchase in Switzerland, we only need some information about your car. </font><font style="vertical-align: inherit;">The brand, the date of first registration, the mileage, the structure, the type of transmission, the model, the number of doors, the type of fuel and the color are probably among the most important criteria that influence the price. </font><font style="vertical-align: inherit;">You can enter all of this data into our online inquiry form via our website and receive an initial offer. </font><font style="vertical-align: inherit;">You will then receive the offer within a very short time either by telephone or email.</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">As you can see, there are only a few conditions for a smooth car purchase in our company. </font><font style="vertical-align: inherit;">It doesn't even matter whether you live in Zurich, Aargau, Basel, Bern, St. Gallen or Lucerne - you can reach us online or by phone from anywhere in Switzerland. </font><font style="vertical-align: inherit;">Of course, you can also send us additional details about your car that may influence the value of the car. </font><font style="vertical-align: inherit;">You are also welcome to send us pictures so that we can get a first impression of your car. </font><font style="vertical-align: inherit;">So benefit from a quick, safe and easy car purchase in Switzerland and contact us from Zurich, Aargau, Basel, Bern, St. Gallen or Lucerne. </font><font style="vertical-align: inherit;">We are also happy to be your contact for the cantons of Appenzell, Freiburg, Geneva, Glarus, Graubünden, Jura, Neuchâtel, Nidwalden, Obwalden, Schaffhausen, Solothurn, Schwyz, Thurgau, Ticino, Uri, Vaud, Valais and Zug - we look forward to your inquiry !</font></font></p>
+		
 				</div>
-				<div class="footer-copyright">
-					<div class="row">
-						<div class="col-sm-6">
-							<p>
-								&copy; copyright.designed and developed by <a href="">fouez kebiche</a> & ali maameri.
-							</p><!--/p-->
+				<div class="social-media" style="transform: translateY(100%); display: flex; justify-content: space-around; margin-bottom: 0vh; padding:3vh; flex-wrap: wrap; background-color: white; box-shadow: 0px 0px 10px 3px rgba(81, 80, 80, 0.462);">
+					<!-- Facebook -->
+					<a href="https://www.facebook.com">
+					  <i class="fab fa-facebook-f fa-2x" style="color: #3b5998;"></i>
+					</a>
+				  
+					<!-- Twitter -->
+					<a href="https://twitter.com">
+					  <i class="fab fa-twitter fa-2x" style="color: #55acee;"></i>
+					</a>
+				  
+					<!-- Google -->
+					<a href="https://plus.google.com">
+					  <i class="fab fa-google fa-2x" style="color: #dd4b39;"></i>
+					</a>
+				  
+					<!-- Instagram -->
+					<a href="https://www.instagram.com">
+					  <i class="fab fa-instagram fa-2x" style="color: #ac2bac;"></i>
+					</a>
+				  
+					<!-- Whatsapp -->
+					<a href="https://www.whatsapp.com">
+					  <i class="fab fa-whatsapp fa-2x" style="color: #25d366;"></i>
+					</a>
+				  </div>
+				  
+				<footer id="contact"  class="contact">
+					<div class="container">
+						<div class="footer-top" style="padding: 10vh; padding-bottom: 0;" >
+							
+							<div class="footer-copyright">
+								<div class="row">
+									<div class="col" style="text-align: center;">
+										<p>
+											{% comment %} &copy; copyright.designed and developed by <a href="">fouez kebiche</a> & ali maameri. {% endcomment %}
+										</p><!--/p-->
+									</div>
+								
+								</div>
+							</div><!--/.footer-copyright-->
 						</div>
-						<div class="col-sm-6">
-							<div class="footer-social">
-								<a href="#"><i class="fa fa-facebook"></i></a>	
-								<a href="#"><i class="fa fa-instagram"></i></a>
-								<a href="#"><i class="fa fa-linkedin"></i></a>
-								<a href="#"><i class="fa fa-pinterest-p"></i></a>
-								<a href="#"><i class="fa fa-behance"></i></a>	
-							</div>
+						
+					</div><!--/.container-->
+		
+					<div id="scroll-Top">
+						<div class="return-to-top">
+							<i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
 						</div>
-					</div>
-				</div><!--/.footer-copyright-->
+						
+					</div><!--/.scroll-Top-->
+					
+				</footer><!--/.footer-copyright-->
 			</div><!--/.container-->
 
 			<div id="scroll-Top">
@@ -663,8 +325,10 @@
 		<script src="{% static 'assets/js/jquery.js' %}"></script>
         
         <!--modernizr.min.js-->
-        <!-- <script src="  https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script> -->
-		
+        <!-- <script src="{% static '  https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' %}"></script> -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 		<!--bootstrap.min.js-->
         <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
 		
