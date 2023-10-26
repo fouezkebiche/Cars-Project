@@ -15,7 +15,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Rufina:400,700" rel="stylesheet">
         
         <!-- title of site -->
-        <title>CarVilla</title>
+        <title>Cars</title>
 
         <!-- For favicon png -->
 		<link rel="shortcut icon" type="image/icon" href="{% static 'logo/favicon.png' %}"/>
@@ -129,6 +129,29 @@
 			}
 		  }
 	</style>
+	<style>
+		/* Define a CSS class for the transition effect */
+		.language-transition {
+			opacity: 0;
+			transition: opacity 0.5s; /* You can adjust the duration to your preference */
+		}
+	</style>
+	<style>
+		/* Add your custom CSS here */
+		nav.navbar.bootsnav ul.nav > li > a {
+			padding: 48px 21px;
+		}
+		
+		nav.navbar.bootsnav ul.nav > li > a:hover,
+		nav.navbar.bootsnav ul.nav > li > a:focus {
+			color: #4e4ffa;
+		}
+		
+		nav.navbar.bootsnav ul.nav > li.active > a {
+			color: #4e4ffa;
+		}
+	</style>
+	
 	<body>
 		<!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -158,13 +181,22 @@
 				            <!-- Collect the nav links, forms, and other content for toggling -->
 				            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
 				                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-				                    <li class=" scroll active"><a href="{% url "home" %}">home</a></li>
-				                    {% comment %} <li class="scroll"><a href="#service">service</a></li> {% endcomment %}
+									<li class="scroll active" id="home-link"><a href="{% url "home" %}">home</a></li>
+									<li class="scroll" id="car-purchase-link"><a href="{% url "contact_us_form" %}">Car purchase form</a></li>				                    {% comment %} <li class="scroll"><a href="#brand">brands</a></li> {% endcomment %}
+
+													                    {% comment %} <li class="scroll"><a href="#service">service</a></li> {% endcomment %}
 				                    {% comment %} <li class="scroll"><a href="#featured-cars">featured cars</a></li> {% endcomment %}
-				                    <li class="scroll"><a href="{% url "contact_us_form" %}">Car purchase form</a></li>
-				                    {% comment %} <li class="scroll"><a href="#brand">brands</a></li> {% endcomment %}
-				                    {% comment %} <li class="scroll"><a href="#contact">contact</a></li> {% endcomment %}
-				                </ul><!--/.nav -->
+				                    {% comment %} <li class="scroll"><a href="#contact">contact</a></li> {% endcomment %}	
+									<li class="dropdown language-buttons">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											Language <b class="caret"></b>
+										</a>
+										<ul class="dropdown-menu">
+											<li id="switch-to-french"><a href="#" >French</a></li>
+											<li id="switch-to-german"><a href="#" >German</a></li>
+										</ul>
+									</li>
+									
 				            </div><!-- /.navbar-collapse -->
 				        </div><!--/.container-->
 				    </nav><!--/nav-->
@@ -177,88 +209,93 @@
 
 			<div class="container">
 				<div class="welcome-hero-txt">
-					<h2>Turning Cars into Cash, Hassle-Free</h2>
-					<p>
+					<h2 id="title">Turning Cars into Cash, Hassle-Free</h2>
+					<p id="welcome-text">
 						Your Car, Our Cash – Sell Smarter, Drive Happier!
 					</p>
 					{% comment %} <button class="welcome-btn" onclick="window.location.href='#'">contact us</button> {% endcomment %}
 				</div>
 			</div>
-
+			</section><!--/.welcome-hero-->
+			<!--welcome-hero end -->
 			
-
-		</section><!--/.welcome-hero-->
-		<!--welcome-hero end -->
-
-		<!--service start -->
-		 <section id="service" class="service">
-			<div class="container">
-			<div class="topcontent d-flex flex-column justify-content-center align-item-center">
-<h1 class="text-center">How does the sale of my car or motorhome work?</h1>
-<p  class="text-center">
-	We buy your vehicle or regardless of the type, at the highest price, against cash payment and with immediate collection. Contact us today to receive a non-binding offer.
-	
-	</p>
-	<h1 class="text-center">OUR LINE <span style="color: red;">+41 76 400 22 22</span></h1>
-</div> 
-<div class="offers " style="display: flex; justify-content: space-between; flex-direction: row; flex-wrap: wrap; margin-top: 5vh;margin-bottom: 5vh; align-items: center;">
-
-
-	<div class="card" style="width: 25rem;" data-aos="fade-up" data-aos-delay="200" >
-		<img src="{% static 'images\sharing-best-offer-650x596.jpeg' %}" class="card-img-top" alt="...">
-		<div class="card-body">
-		  <h5 class="card-title">Offer</h5>
-		  <p class="card-text">Get your non-binding offer with us.</p>
-		
-		</div>
-	  </div>
-	  <div class="card" style="width: 25rem;" data-aos="fade-up" data-aos-delay="300" >
-		<img src="{% static 'images\successful-business-peolple-handshaking-after-good-deal_1421-35.avif' %}" class="card-img-top" alt="...">
-		<div class="card-body">
-		  <h5 class="card-title">Deal</h5>
-		  <p class="card-text">Let's make the deal <br>  perfect.</p>
-		
-		</div>
-	  </div>
-	  <div class="card" style="width: 25rem;" data-aos="fade-up" data-aos-delay="400" >
-		<img src="{% static 'images\AdobeStock_21352107.jpeg' %}" class="card-img-top" alt="...">
-		<div class="card-body">
-		  <h5 class="card-title">Cash payment</h5>
-		  <p class="card-text">Enjoy uncomplicated cash payments.</p>
-		
-		</div>
-	  </div>
-	  <div class="card" style="width: 25rem;" data-aos="fade-up" data-aos-delay="500" >
-		<img src="{% static 'images\truck-trailer-transports-new-cars-rides-on-PVWRMTQ.jpg' %}" class="card-img-top" alt="...">
-		<div class="card-body">
-		  <h5 class="card-title">Collection</h5>
-		  <p class="card-text">Determine the time and place of pickup.</p>
-		
-		</div>
-	  </div>
-</div>
-<div class="map  " style="display: flex; justify-content: center; align-items: center; margin-bottom: 10vh;" data-aos="fade-right" data-aos-delay="900">
-
-	<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2715.5033786405716!2d8.34154407595423!3d47.108805622220615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDfCsDA2JzMxLjciTiA4wrAyMCczOC44IkU!5e0!3m2!1sen!2sdz!4v1697779822169!5m2!1sen!2sdz" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
-				</div></section>
-
-				<div class="text_condition">
-					<h2 style="text-align: center; font-size:35px"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Your specialist in car purchasing in Zurich, Aargau, Basel, Bern, St. Gallen, Lucerne and throughout Switzerland</font></font></strong></h2>
-					<br/>
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Anyone who wants to sell their car is often at a loss. </font><font style="vertical-align: inherit;">Where can I find solvent and serious buyers? </font><font style="vertical-align: inherit;">How do I not sell my car short? </font><font style="vertical-align: inherit;">Do I even have time to take care of selling my car myself? </font><font style="vertical-align: inherit;">All of these questions are easily answered with our car purchase, because here you will find reputable buyers who will buy your car at a reasonable price and thus save you time. </font><font style="vertical-align: inherit;">Whether Zurich, Aargau, Basel, Bern, St. Gallen or Lucerne – we work for you throughout Switzerland and are therefore always exactly where you need us.</font></font></p>
-		<br/>
-		<h3 style=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Buying a car – your advantages</font></font></h3>
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">When you use our car purchasing service, you can expect numerous advantages. </font><font style="vertical-align: inherit;">On the one hand, you always get the best price for your car from us and can therefore be sure that you are not wasting money unnecessarily. </font><font style="vertical-align: inherit;">This saved money can then be invested in a new car, for example. </font><font style="vertical-align: inherit;">As soon as we have concluded a deal that both parties are satisfied with, we will also immediately give you the agreed amount in cash. </font><font style="vertical-align: inherit;">So you don't have to wait for the bank to transfer the money to your account. </font><font style="vertical-align: inherit;">At the same time, the condition of your car doesn't matter because we also buy damaged cars that a normal buyer probably wouldn't buy.</font></font></p>
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">However, our car purchase is even more straightforward because we are also happy to pick up your car for you. </font><font style="vertical-align: inherit;">No matter whether you live in Zurich, Aargau, Basel, Bern, St. Gallen or Lucerne – we will come to your desired pickup location throughout Switzerland. </font><font style="vertical-align: inherit;">Another convincing advantage is of course the time you save with us. </font><font style="vertical-align: inherit;">You don't have to take photos of the car, place any sales advertisements online and, as a result, you don't have to deal with dubious buyers. </font><font style="vertical-align: inherit;">So if a new car is already on the horizon and things have to happen quickly, we are the right people to contact.</font></font></p>
-		<br/>
-		<h3 style=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Car purchase – conditions</font></font></h3>
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">If you would like to take advantage of our car purchase in Switzerland, we only need some information about your car. </font><font style="vertical-align: inherit;">The brand, the date of first registration, the mileage, the structure, the type of transmission, the model, the number of doors, the type of fuel and the color are probably among the most important criteria that influence the price. </font><font style="vertical-align: inherit;">You can enter all of this data into our online inquiry form via our website and receive an initial offer. </font><font style="vertical-align: inherit;">You will then receive the offer within a very short time either by telephone or email.</font></font></p>
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">As you can see, there are only a few conditions for a smooth car purchase in our company. </font><font style="vertical-align: inherit;">It doesn't even matter whether you live in Zurich, Aargau, Basel, Bern, St. Gallen or Lucerne - you can reach us online or by phone from anywhere in Switzerland. </font><font style="vertical-align: inherit;">Of course, you can also send us additional details about your car that may influence the value of the car. </font><font style="vertical-align: inherit;">You are also welcome to send us pictures so that we can get a first impression of your car. </font><font style="vertical-align: inherit;">So benefit from a quick, safe and easy car purchase in Switzerland and contact us from Zurich, Aargau, Basel, Bern, St. Gallen or Lucerne. </font><font style="vertical-align: inherit;">We are also happy to be your contact for the cantons of Appenzell, Freiburg, Geneva, Glarus, Graubünden, Jura, Neuchâtel, Nidwalden, Obwalden, Schaffhausen, Solothurn, Schwyz, Thurgau, Ticino, Uri, Vaud, Valais and Zug - we look forward to your inquiry !</font></font></p>
-		
+			<!--service start -->
+			<section id="service" class="service">
+				<div class="container">
+					<div class="topcontent d-flex flex-column justify-content-center align-item-center">
+						<h1 class="text-center" id="servicetitle">How does the sale of my car or motorhome work?</h1>
+						<p class="text-center" id="service-paragraph">
+							We buy your vehicle or regardless of the type, at the highest price, against cash payment and with immediate collection. Contact us today to receive a non-binding offer.
+						</p>
+						<h1 class="text-center" id="ourline">OUR LINE <span style="color: red;">+41 76 400 22 22</span></h1>
+					</div>
+					<div class="offers" style="display: flex; justify-content: space-between; flex-direction: row; flex-wrap: wrap; margin-top: 5vh; margin-bottom: 5vh; align-items: center;">
+						<div class="card" style="width: 25rem;" data-aos="fade-up" data-aos-delay="200">
+							<img src="{% static 'images\sharing-best-offer-650x596.jpeg' %}" class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title" id="offer">Offer</h5>
+								<p class="card-text" id="offer-subtitle">Get your non-binding offer with us.</p>
+							</div>
+						</div>
+						<div class="card" style="width: 25rem;" data-aos="fade-up" data-aos-delay="300">
+							<img src="{% static 'images\successful-business-peolple-handshaking-after-good-deal_1421-35.avif' %}" class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title" id="Deal">Deal</h5>
+								<p class="card-text" id="Deal-subtitle">Let's make the deal <br>  perfect.</p>
+							</div>
+						</div>
+						<div class="card" style="width: 25rem;" data-aos="fade-up" data-aos-delay="400">
+							<img src="{% static 'images\AdobeStock_21352107.jpeg' %}" class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title" id="Cash-payment" >Cash payment</h5>
+								<p class="card-text" id="Cash-payment-subtitle">Enjoy uncomplicated cash payments.</p>
+							</div>
+						</div>
+						<div class="card" style="width: 25rem;" data-aos="fade-up" data-aos-delay="500">
+							<img src="{% static 'images\truck-trailer-transports-new-cars-rides-on-PVWRMTQ.jpg' %}" class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title" id="Collection">Collection</h5>
+								<p class="card-text" id="Collection-subtitle">Determine the time and place of pickup.</p>
+							</div>
+						</div>
+					</div>
+					<div class="map" style="display: flex; justify-content: center; align-items: center; margin-bottom: 10vh;" data-aos="fade-right" data-aos-delay="900">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2715.5033786405716!2d8.34154407595423!3d47.108805622220615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDfCsDA2JzMxLjciTiA4wrAyMCczOC44IkU!5e0!3m2!1sen!2sdz!4v1697779822169!5m2!1sen!2sdz" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
 				</div>
-
-</div></div>
-				</div></section>
+			</section>
+			
+			<div class="text_condition">
+				<h2 id="condition-title" style="text-align: center; font-size:35px"><strong>Your specialist in car purchasing in Zurich, Aargau, Basel, Bern, St. Gallen, Lucerne and throughout Switzerland</strong></h2>
+				<br/>
+				<p id="text_condition-paragraph1">
+					<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Anyone who wants to sell their car is often at a loss. </font><font style="vertical-align: inherit;">Where can I find solvent and serious buyers? </font><font style="vertical-align: inherit;">How do I not sell my car short? </font><font style="vertical-align: inherit;">Do I even have time to take care of selling my car myself? </font><font style="vertical-align: inherit;">All of these questions are easily answered with our car purchase, because here you will find reputable buyers who will buy your car at a reasonable price and thus save you time. </font><font style="vertical-align: inherit;">Whether Zurich, Aargau, Basel, Bern, St. Gallen or Lucerne – we work for you throughout Switzerland and are therefore always exactly where you need us.</font></font>
+				</p>
+				<br/>
+				<h3 id="text_condition-advantages">
+					<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Buying a car – your advantages</font></font>
+				</h3>
+				<p id="text_condition-advantages-paragraph1">
+					<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">When you use our car purchasing service, you can expect numerous advantages. </font><font style="vertical-align: inherit;">On the one hand, you always get the best price for your car from us and can therefore be sure that you are not wasting money unnecessarily. </font><font style="vertical-align: inherit;">This saved money can then be invested in a new car, for example. </font><font style="vertical-align: inherit;">As soon as we have concluded a deal with which both parties are satisfied, we will also immediately give you the agreed amount in cash. </font><font style="vertical-align: inherit;">So you don't have to wait for the bank to transfer the money to your account. </font><font style="vertical-align: inherit;">At the same time, the condition of your car doesn't matter because we also buy damaged cars that a normal buyer probably wouldn't buy.</font></font>
+				</p>
+				<p id="text_condition-advantages-paragraph2">
+					<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">However, our car purchase is even more straightforward because we are also happy to pick up your car for you. </font><font style="vertical-align: inherit;">No matter whether you live in Zurich, Aargau, Basel, Bern, St. Gallen or Lucerne – we will come to your desired pickup location throughout Switzerland. </font><font style="vertical-align: inherit;">Another convincing advantage is of course the time you save with us. </font><font style="vertical-align: inherit;">You don't have to take photos of the car, place any sales advertisements online and, as a result, you don't have to deal with dubious buyers. </font><font style="vertical-align: inherit;">So if a new car is already on the horizon and things have to happen quickly, we are the right people to contact.</font></font>
+				</p>
+				<br/>
+				<h3 id="text_condition-conditions">
+					<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Car purchase – conditions</font></font>
+				</h3>
+				<p id="text_condition-conditions-paragraph1">
+					<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">If you would like to take advantage of our car purchase in Switzerland, we only need some information about your car. </font><font style="vertical-align: inherit;">The brand, the date of first registration, the mileage, the structure, the type of transmission, the model, the number of doors, the type of fuel and the color are probably among the most important criteria that influence the price. </font><font style="vertical-align: inherit;">You can enter all of this data into our online inquiry form via our website and receive an initial offer. </font><font style="vertical-align: inherit;">You will then receive the offer within a very short time either by telephone or email.</font></font>
+				</p>
+				<p id="text_condition-conditions-paragraph2">
+					<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">As you can see, there are only a few conditions for a smooth car purchase in our company. </font><font style="vertical-align: inherit;">It doesn't even matter whether you live in Zurich, Aargau, Basel, Bern, St. Gallen or Lucerne - you can reach us online or by phone from anywhere in Switzerland. </font><font style="vertical-align: inherit;">Of course, you can also send us additional details about your car that may influence the value of the car. </font><font style="vertical-align: inherit;">You are also welcome to send us pictures so that we can get a first impression of your car. </font><font style="vertical-align: inherit;">So benefit from a quick, safe, and easy car purchase in Switzerland and contact us from Zurich, Aargau, Basel, Bern, St. Gallen, or Lucerne. </font><font style="vertical-align: inherit;">We are also happy to be your contact for the cantons of Appenzell, Freiburg, Geneva, Glarus, Graubünden, Jura, Neuchâtel, Nidwalden, Obwalden, Schaffhausen, Solothurn, Schwyz, Thurgau, Ticino, Uri, Vaud, Valais, and Zug - we look forward to your inquiry!</font></font>
+				</p>
+			</div>
+			</div>
+			</div>
+			</section>
+			
 
 				<div class="social-media" style="transform: translateY(100%); display: flex; justify-content: space-around; margin-bottom: 0vh; padding:3vh; flex-wrap: wrap; background-color: white; box-shadow: 0px 0px 10px 3px rgba(81, 80, 80, 0.462);">
 					<!-- Facebook -->
@@ -329,7 +366,7 @@
         </footer><!--/.contact-->
 		<!--contact end-->
 
-
+<script src="{% static 'js/translation.js' %}"></script>
 		
 		<!-- Include all js compiled plugins (below), or include individual files as needed -->
 
@@ -405,6 +442,27 @@
 			});
 			
 		</script>
+		
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const homeLink = document.getElementById("home-link");
+				const carPurchaseLink = document.getElementById("car-purchase-link");
+			
+				carPurchaseLink.addEventListener("click", function () {
+					homeLink.classList.remove("active");
+					carPurchaseLink.classList.add("active");
+				});
+			
+				homeLink.addEventListener("click", function () {
+					carPurchaseLink.classList.remove("active");
+					homeLink.classList.add("active");
+				});
+			});
+			</script>
+			
+
 		
     </body>
 	

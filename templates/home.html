@@ -85,10 +85,9 @@
 				            <!-- Collect the nav links, forms, and other content for toggling -->
 				            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
 				                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-				                    <li class=" scroll active"><a href="{% url "home" %}">home</a></li>
-				                    {% comment %} <li class="scroll"><a href="#service">service</a></li> {% endcomment %}
-				                    {% comment %} <li class="scroll"><a href="#featured-cars">featured cars</a></li> {% endcomment %}
-				                    <li class="scroll"><a href="{% url "contact_us_form" %}">Car purchase form</a></li>
+                                    <li class="scroll " id="home-link"><a href="{% url "home" %}">home</a></li>
+									<li class="scroll active" id="car-purchase-link"><a href="{% url "contact_us_form" %}">Car purchase form</a></li>				                    {% comment %} <li class="scroll"><a href="#brand">brands</a></li> {% endcomment %}
+
 				                    {% comment %} <li class="scroll"><a href="#brand">brands</a></li> {% endcomment %}
 				                    {% comment %} <li class="scroll"><a href="#contact">contact</a></li> {% endcomment %}
 				                </ul><!--/.nav -->
@@ -317,7 +316,27 @@
 
         <!--Custom JS-->
         <script src="assets/js/custom.js"></script>
-        
+        <script src="js/translation.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const homeLink = document.getElementById("home-link");
+				const carPurchaseLink = document.getElementById("car-purchase-link");
+			
+				carPurchaseLink.addEventListener("click", function () {
+					homeLink.classList.remove("active");
+					carPurchaseLink.classList.add("active");
+				});
+			
+				homeLink.addEventListener("click", function () {
+					carPurchaseLink.classList.remove("active");
+					homeLink.classList.add("active");
+				});
+			});
+			</script>
+			
+
     </body>
 	
 </html>
