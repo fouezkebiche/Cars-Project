@@ -84,39 +84,46 @@ function translateText(elementId, language) {
         setTimeout(() => {
             element.textContent = translations[language][elementId];
             element.classList.remove('language-transition'); // Remove the transition class after the transition
-        }, 10); 
-        element.textContent = translations[language][elementId];
+        }, 10);
     }
 }
 
+// Store the initial language
+const initialLanguage = 'en';
+
 // Translate elements to the initial language
-const initialLanguage = 'en'; // Change this to your desired initial language
-translateText('title', initialLanguage);
-translateText('service-paragraph', initialLanguage);
-translateText('servicetitle', initialLanguage);
-translateText('ourline', initialLanguage);
-translateText('offer', initialLanguage);
-translateText('Deal', initialLanguage);
-translateText('Cash-payment', initialLanguage);
-translateText('Cash-payment-subtitle', initialLanguage);
-translateText('Collection', initialLanguage);
-translateText('welcome-text', initialLanguage);
-translateText('Collection-subtitle', initialLanguage);
-translateText('Deal-subtitle', initialLanguage);
-translateText('offer-subtitle', initialLanguage);
-translateText('condition-title', initialLanguage);
-translateText('text_condition-paragraph1', initialLanguage);
-translateText('text_condition-advantages', initialLanguage);
-translateText('text_condition-advantages-paragraph1', initialLanguage);
-translateText('text_condition-advantages-paragraph2', initialLanguage);
-translateText('text_condition-conditions', initialLanguage);
-translateText('text_condition-conditions-paragraph1', initialLanguage);
-translateText('text_condition-conditions-paragraph2', initialLanguage);
+function translateToInitialLanguage() {
+    translateText('title', initialLanguage);
+    translateText('service-paragraph', initialLanguage);
+    translateText('servicetitle', initialLanguage);
+    translateText('ourline', initialLanguage);
+    translateText('offer', initialLanguage);
+    translateText('Deal', initialLanguage);
+    translateText('Cash-payment', initialLanguage);
+    translateText('Cash-payment-subtitle', initialLanguage);
+    translateText('Collection', initialLanguage);
+    translateText('welcome-text', initialLanguage);
+    translateText('Collection-subtitle', initialLanguage);
+    translateText('Deal-subtitle', initialLanguage);
+    translateText('offer-subtitle', initialLanguage);
+    translateText('condition-title', initialLanguage);
+    translateText('text_condition-paragraph1', initialLanguage);
+    translateText('text_condition-advantages', initialLanguage);
+    translateText('text_condition-advantages-paragraph1', initialLanguage);
+    translateText('text_condition-advantages-paragraph2', initialLanguage);
+    translateText('text_condition-conditions', initialLanguage);
+    translateText('text_condition-conditions-paragraph1', initialLanguage);
+    translateText('text_condition-conditions-paragraph2', initialLanguage);
+}
+
+// Translate elements to the initial language initially
+translateToInitialLanguage();
+
 // Translate elements based on the selected language
 const languageButtons = document.querySelectorAll('.dropdown-menu li');
 languageButtons.forEach(button => {
     button.addEventListener('click', function () {
-        const language = this.id === 'switch-to-french' ? 'fr' : 'de';
+        const language = this.id === 'switch-to-english' ? 'en' : this.id === 'switch-to-french' ? 'fr' : 'de';
         translateText('title', language);
         translateText('service-paragraph', language);
         translateText('servicetitle', language);
@@ -138,6 +145,10 @@ languageButtons.forEach(button => {
         translateText('text_condition-conditions', language);
         translateText('text_condition-conditions-paragraph1', language);
         translateText('text_condition-conditions-paragraph2', language);
+        
+        if (language === initialLanguage) {
+            // Revert to the initial language
+            translateToInitialLanguage();
+        }
     });
-});
-});
+});});
