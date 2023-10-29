@@ -42,9 +42,10 @@ def contact_us_form(request):
             'color': request.POST.get('color'),
             'doors': request.POST.get('doors'),
             'message': request.POST.get('message'),
-            'asking_price': request.POST.get('asking_price'),
+            'asking_price': f"{request.POST.get('asking_price')} {request.POST.get('currency')}",
             'Displacement': request.POST.get('Displacement'),
         }
+        print(form_data)
 
         image_files = []
         for i in range(1, 5):
@@ -56,7 +57,7 @@ def contact_us_form(request):
         # Create a PDF document with the form data and image attachments
         # Check for None values and create a list of valid field_name, field_value pairs
         valid_fields = [(field_name, field_value) for field_name, field_value in form_data.items() if field_value is not None]
-        
+
         # Generate a PDF document in memory
         buffer = BytesIO()
         p = canvas.Canvas(buffer, pagesize=letter)
@@ -87,7 +88,7 @@ def contact_us_form(request):
         subject = 'Contact Form Submission'
         message = 'Please find the attached PDF and images for the contact form submission.'
         from_email = 'your_email@gmail.com'  # Replace with your Gmail address
-        recipient_list = ['samouh77@hotmail.com']  # Replace with the recipient's email address
+        recipient_list = ['Kebichefouez@gmail.com']  # Replace with the recipient's email address
 
         email = EmailMessage(subject, message, from_email, recipient_list)
 
@@ -96,23 +97,24 @@ def contact_us_form(request):
         # Attach image files with content type based on file format and resize them
         for image_field_name, image_content in image_files:
             content_type = 'image/png' if image_field_name.endswith('.png') else 'image/jpeg'
-            
-            # Resize the image to a reasonable size (e.g., 800x600)
+
+            # Open the image and convert it to RGB mode (remove alpha channel)
             img = Image.open(BytesIO(image_content))
+            img = img.convert('RGB')  # Convert to RGB mode
+
+            # Resize the image to a reasonable size (e.g., 800x600)
             img.thumbnail((800, 600))
             resized_image_content = BytesIO()
-            img.save(resized_image_content, format='JPEG' if content_type == 'image/jpeg' else 'PNG')
-            
-            email.attach(image_field_name, resized_image_content.getvalue(), content_type)
 
+            # Save as JPEG (since you already checked the content_type)
+            img.save(resized_image_content, format='JPEG')
 
+            email.attach(image_field_name, resized_image_content.getvalue(), 'image/jpeg')
 
         email.attach(f'{valid_fields[0][1]}_contact_form.pdf', buffer.read(), 'application/pdf')
 
-
-
         email.send()
-
+       
         return redirect('home')
 
     return render(request, 'home.html')
