@@ -45,7 +45,6 @@
         
         <!--style.css-->
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        
         <!--responsive.css-->
         <link rel="stylesheet"  href="{% static 'css/responsive.css' %}">
         
@@ -56,10 +55,28 @@
 			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+        <link rel="stylesheet" href="node_modules/mdbootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="node_modules/mdbootstrap/css/mdb.min.css">
+        <link rel="stylesheet" href="node_modules/mdbootstrap/css/style.css">
     </head>
 	<style>
-      
+        input[type=file]::file-selector-button {
+            margin-right: 20px;
+            border: none;
+            background: #084cdf;
+            padding: 2px 20px;
+            
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            transition: background .2s ease-in-out;
+          }
+          
+          input[type=file]::file-selector-button:hover {
+            background: #0d45a5;
+          }
     </style>
 	<body>
         <section id="home" class="welcome-hero">
@@ -280,30 +297,43 @@
                             </div>
 
                        
-                        <div class="col-md-6">
-                            <div class="form-group" id="image1">
-                                <label for="image1">Image 1</label>
-                                <input type="file" name="image1" class="form-control" id="image1">
+                            <div class="col-md-6">
+                                <div class="form-group file-input-container">
+                                    <label for="image1" class="file-label">
+                                        Choose Image 1
+                                    </label>
+                                    <input type="file" name="image1" class="form-control file-input" id="image1">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="image2" id="image2">Image 2</label>
-                                <input type="file" name="image2" class="form-control" id="image2">
+                            
+                            <div class="col-md-6">
+                                <div class="form-group file-input-container">
+                                    <label for="image2" class="file-label">
+                                        Choose Image 2
+                                    </label>
+                                    <input type="file" name="image2" class="form-control file-input" id="image2">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="image3" id="image3">Image 3</label>
-                                <input type="file" name="image3" class="form-control" id="image3">
+                            
+                            <div class="col-md-6">
+                                <div class="form-group file-input-container">
+                                    <label for="image3" class="file-label">
+                                        Choose Image 3
+                                    </label>
+                                    <input type="file" name="image3" class="form-control file-input" id="image3">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="image4" id="image4">Image 4</label>
-                                <input type="file" name="image4" class="form-control" id="image4">
+                            
+                            <div class="col-md-6">
+                                <div class="form-group file-input-container">
+                                    <label for="image4" class="file-label">
+                                        Choose Image 4
+                                    </label>
+                                    <input type="file" name="image4" class="form-control file-input" id="image4">
+                                </div>
                             </div>
-                        </div>
+                            
+                     
                         <div class="col-md-6"  style="display: flex; justify-content: end;align-items: center; width: 100%;">
                             <div class="form-group">
                         <div class="col-md-12 d-flex mt-5 ">
@@ -340,7 +370,13 @@
         <script src="assets/js/custom.js"></script>
         <script src="js/translation.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-       
+
+
+        <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery.min.js"></script>
+        <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
+        <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
+        
 		<script>
 			document.addEventListener("DOMContentLoaded", function () {
 				const homeLink = document.getElementById("home-link");
