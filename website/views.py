@@ -12,6 +12,7 @@ from PIL import Image
 from reportlab.lib.utils import ImageReader
 from .models import Demande
 from PIL import Image
+from django.contrib import messages
 
 # Create your views here.
 
@@ -114,8 +115,8 @@ def contact_us_form(request):
         email.attach(f'{valid_fields[0][1]}_contact_form.pdf', buffer.read(), 'application/pdf')
 
         email.send()
-       
-        return redirect('home')
+        messages.success(request, 'Your Form has been sent successfully.')
+        return redirect('main')
 
     return render(request, 'home.html')
 

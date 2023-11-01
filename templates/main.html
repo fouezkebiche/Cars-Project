@@ -243,13 +243,32 @@
 			
 			<!--service start -->
 			<section id="service" class="service">
+				{% if messages %}
+				<script>
+				  $(document).ready(function() {
+					{% for message in messages %}
+					  setTimeout(function() {
+						Swal.fire({
+						  position: 'center',
+						  icon: 'success',
+						  title: '{{ message }}',
+						  showConfirmButton: false,
+						  timer: 3000,
+						});
+					  }, 5000 * {{ forloop.counter0 }}); // Adjust the delay as needed
+					{% endfor %}
+				  });
+				</script>
+			  {% endif %}
+			  
+
 				<div class="container">
 					<div class="topcontent d-flex flex-column justify-content-center align-item-center">
 						<h1 class="text-center" id="servicetitle">How does the sale of my car or motorhome work?</h1>
 						<p class="text-center" id="service-paragraph">
 							We buy your vehicle or regardless of the type, at the highest price, against cash payment and with immediate collection. Contact us today to receive a non-binding offer.
 						</p>
-						<div class="lines d-flex justify-content-center" style="display: flex; justify-content: center; flex-direction: column;"><h1 class="text-center" id="ourline">OUR LINE </h1><span style="color: red;" class="text-center" style="width: 100%;" ><a href="tel:+41762485055" style="color: red;">+41 762 485 055</a></span></div>
+						<div class="lines d-flex justify-content-center" style="display: flex; justify-content: center; flex-direction: column;"><h1 class="text-center" id="ourline">OUR LINE </h1><span style="color: red;" class="text-center" style="width: 100%;" ><a href="tel:+41762485055" style="color: red;">+417 62 48 50 55</a></span></div>
 					</div>
 					<div class="offers" style="display: flex; justify-content: space-between; flex-direction: row; flex-wrap: wrap; margin-top: 5vh; margin-bottom: 5vh; align-items: center;">
 						<div class="card" style="width: 25rem;" data-aos="fade-up" data-aos-delay="200">
@@ -288,13 +307,13 @@
 			</section>
 			
 			<div class="text_condition" style="display: flex; flex-direction: column; justify-content: space-around;width: 100%;margin:2%;padding: 2vh;word-break: break-all;">
-				<h2 id="condition-title mb-5" style="text-align: justify;  margin-bottom: 5%;width: 90%;"><strong>Your specialist in car purchasing in Zurich, Aargau, Basel, Bern, St. Gallen, Lucerne and throughout Switzerland</strong></h2>
+				<h2 id="condition-title mb-5" style="text-align: justify;  margin-bottom: 5%;width: 90%; font-size: xx-large; word-break: keep-all; "><strong>Your specialist in car purchasing in Zurich, Aargau, Basel, Bern, St. Gallen, Lucerne and throughout Switzerland</strong></h2>
 				<br/>
 				<p id="text_condition-paragraph1" style="margin-bottom: 5%;width: 90%;">
 					<font style="vertical-align: inherit;"><font style="vertical-align: inherit; ">Anyone who wants to sell their car is often at a loss. </font><font style="vertical-align: inherit;">Where can I find solvent and serious buyers? </font><font style="vertical-align: inherit;">How do I not sell my car short? </font><font style="vertical-align: inherit;">Do I even have time to take care of selling my car myself? </font><font style="vertical-align: inherit;">All of these questions are easily answered with our car purchase, because here you will find reputable buyers who will buy your car at a reasonable price and thus save you time. </font><font style="vertical-align: inherit;">Whether Zurich, Aargau, Basel, Bern, St. Gallen or Lucerne – we work for you throughout Switzerland and are therefore always exactly where you need us.</font></font>
 				</p>
 				<br/>
-				<h3 id="text_condition-advantages" style="margin-bottom: 2%;width: 90%;">
+				<h3 id="text_condition-advantages" style="margin-bottom: 2%;width: 90%; font-size: x-large;">
 					<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Buying a car – your advantages</font></font>
 				</h3>
 				<p id="text_condition-advantages-paragraph1" style="margin-bottom: 3%;width: 90%;">
@@ -304,7 +323,7 @@
 					<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">However, our car purchase is even more straightforward because we are also happy to pick up your car for you. </font><font style="vertical-align: inherit;">No matter whether you live in Zurich, Aargau, Basel, Bern, St. Gallen or Lucerne – we will come to your desired pickup location throughout Switzerland. </font><font style="vertical-align: inherit;">Another convincing advantage is of course the time you save with us. </font><font style="vertical-align: inherit;">You don't have to take photos of the car, place any sales advertisements online and, as a result, you don't have to deal with dubious buyers. </font><font style="vertical-align: inherit;">So if a new car is already on the horizon and things have to happen quickly, we are the right people to contact.</font></font>
 				</p>
 				<br/>
-				<h3 id="text_condition-conditions" style="margin-bottom: 5%;width: 90%;">
+				<h3 id="text_condition-conditions" style="margin-bottom: 5%;width: 90%;font-size: x-large;">
 					<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Car purchase – conditions</font></font>
 				</h3>
 				<p id="text_condition-conditions-paragraph1" style="margin-bottom: 5%;width: 90%;">
@@ -802,7 +821,7 @@
 			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 			<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	
-			<script>
+			<!-- <script>
 				document.addEventListener("DOMContentLoaded", function () {
 					// Display a SweetAlert animation when the page loads
 					Swal.fire({
@@ -815,7 +834,7 @@
 						allowOutsideClick: false, // Prevent closing by clicking outside
 					});
 				});
-				</script>
+				</script> -->
     </body>
 	
 </html>
