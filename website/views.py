@@ -89,7 +89,7 @@ def contact_us_form(request):
         subject = 'Contact Form Submission'
         message = 'Please find the attached PDF and images for the contact form submission.'
         from_email = 'your_email@gmail.com'  # Replace with your Gmail address
-        recipient_list = ['Kebichefouez@gmail.com']  # Replace with the recipient's email address
+        recipient_list = ['Fritzautomobile@gmail.com']  # Replace with the recipient's email address
 
         email = EmailMessage(subject, message, from_email, recipient_list)
 
