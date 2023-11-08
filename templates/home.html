@@ -102,22 +102,23 @@
 				            <!-- Collect the nav links, forms, and other content for toggling -->
 				            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
 				                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-									<li class="scroll active" id="home-link"><a href="{% url "home" %}">home</a></li>
-									<li class="scroll" id="car-purchase-link"><a href="{% url "contact_us_form" %}">Car purchase form</a></li>				                    {% comment %} <li class="scroll"><a href="#brand">brands</a></li> {% endcomment %}
+									<li class="scroll"><a href="{% url "home" %}"  id="home-link">home</a></li>
+									<li class="scroll active"><a href="{% url "contact_us_form" %}"  id="car-purchase-link">Car purchase form</a></li>				                    {% comment %} <li class="scroll"><a href="#brand">brands</a></li> {% endcomment %}
 
 													                    {% comment %} <li class="scroll"><a href="#service">service</a></li> {% endcomment %}
 				                    {% comment %} <li class="scroll"><a href="#featured-cars">featured cars</a></li> {% endcomment %}
 				                    {% comment %} <li class="scroll"><a href="#contact">contact</a></li> {% endcomment %}	
 									<li class="dropdown language-buttons">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-											Language <b class="caret"></b>
+											<span id="language" style="font-size: large; ">Language</span>  <b class="caret"></b>
 										</a>
 										<ul class="dropdown-menu">
 											<li id="switch-to-english"><a href="#">English</a></li><br>
 											<li id="switch-to-french"><a href="#">French</a></li>
-											<li id="switch-to-deutsh"><a href="#">Deutsch</a></li>
+                                            <br>
+											<li id="switch-to-deutsh"><a href="#">German</a></li>
 											<br>
-											<li id="switch-to-italy"><a href="#">italy</a></li>
+											<li id="switch-to-italy"><a href="#">Italian</a></li>
 
                 						</ul>
 									</li>
@@ -211,9 +212,10 @@
                                 <input type="text" name="model" class="form-control" >
                             </div>
                         </div>
+                        
                         <div class="col-md-6">
-                            <div class="form-group " id="vehicle_type">
-                                <label for="vehicle_type">Vehicle type</label>
+                            <div class="form-group ">
+                                <label for="vehicle_type"  id="vehicle_type">Vehicle type</label>
                                 <input type="text" name="vehicle_type" class="form-control" >
                             </div>
 
@@ -281,7 +283,7 @@
                                 <div class="input-group" style="display:flex;flex-direction:row;justify-content:space-around">
                                     <select class="form-control" id="" name="currency" style="max-width: 100px;">
                                         <option value="EUR" id="EUR">EUR</option>
-                                        <option value="USD" id="USD">USD</option>
+                                        <!-- <option value="USD" id="USD">USD</option> -->
                                         <option value="CHF" id="CHF">CHF</option>
                                     </select>
                                     <input type="text" name="asking_price" class="form-control" >
@@ -416,6 +418,9 @@
     
                         const translations = {
                             en: {
+                                "home-link":"Home",
+                                "car-purchase-link":"Car purchase form",
+                                "language":"Language",
                                 "navbar-menu": "Navigation Menu",
                                 "welcome-text": "Your Car, Our Cash – Sell Smarter, Drive Happier!",
                                 "title": "Turning Cars into Cash, Hassle-Free",
@@ -463,12 +468,13 @@
                                 "image1": "Image 1",
                                 "image2": "Image 2",
                                 "image3": "Image 3",
-                                "image4": "Image 4",
-                                "EUR":"EUR",
-                                "USD":"USD",
-                                "CHF":"CHF"                    
+                                "image4": "Image 4"
+                                                    
                             },
                             fr: {
+                                "home-link": "Accueil",
+        "car-purchase-link": "Formulaire d'achat de voiture",
+        "language": "Langue",
                                 "navbar-menu": "Menu de navigation",
                                 "welcome-text": "Votre voiture, notre argent – ​​Vendez plus intelligemment, conduisez plus heureux !",
                                 "title": "Transformer les voitures en argent, sans tracas",
@@ -517,12 +523,12 @@
                                 "image1": "Image 1",
                                 "image2": "Image 2",
                                 "image3": "Image 3",
-                                "image4": "Image 4",
-                                "EUR":"EUR",
-                                "USD":"USD",
-                                "CHF":"CHF"  
+                                "image4": "Image 4"
                             },
                             ge: {
+                                "home-link": "Startseite",
+        "car-purchase-link": "Auto Kaufformular",
+        "language": "Sprache",
                                 "navbar-menu": "Navigationsmenü",
                                 "welcome-text": "Ihr Auto, unser Bargeld - Schlauer verkaufen, glücklicher fahren!",
                                 "title": "Autos einfach und bequem in Bargeld verwandeln",
@@ -545,10 +551,38 @@
                                 "text_condition-conditions": "Autoankauf – Bedingungen",
                                 "text_condition-conditions-paragraph1": "Wenn Sie unseren Autoankauf in der Schweiz nutzen möchten, benötigen wir nur einige Informationen zu Ihrem Auto. Die Marke, das Datum der Erstzulassung, der Kilometerstand, die Karosserieart, die Art des Getriebes, das Modell, die Anzahl der Türen, die Art des Kraftstoffs und die Farbe sind wahrscheinlich die wichtigsten Kriterien, die den Preis beeinflussen. Sie können all diese Daten in unser Online-Anfrageformular auf unserer Website eingeben und ein erstes Angebot erhalten. Sie werden das Angebot dann innerhalb kürzester Zeit entweder telefonisch oder per E-Mail erhalten.",
                                 "text_condition-conditions-paragraph2": "Wie Sie sehen können, gibt es nur wenige Bedingungen für einen reibungslosen Autoankauf in unserem Unternehmen. Es spielt keine Rolle, ob Sie in Zürich, Aargau, Basel, Bern, St. Gallen oder Luzern wohnen – Sie können uns online oder telefonisch von jedem Ort in der Schweiz erreichen. Natürlich können Sie uns auch zusätzliche Informationen zu Ihrem Auto senden, die den Wert des Autos beeinflussen könnten. Sie sind auch herzlich eingeladen, uns Fotos zu schicken, damit wir einen ersten Eindruck von Ihrem Auto bekommen können. Profitieren Sie also von einem schnellen, sicheren und unkomplizierten Autoankauf in der Schweiz und nehmen Sie Kontakt mit uns auf – sei es von Zürich, Aargau, Basel, Bern, St. Gallen oder Luzern. Wir sind auch Ihr Ansprechpartner für die Kantone Appenzell, Freiburg, Genf, Glarus, Graubünden, Jura, Neuchâtel, Nidwalden, Obwalden, Schaffhausen, Solothurn, Schwyz, Thurgau, Tessin, Uri, Waadt, Wallis und Zug. Wir freuen uns auf Ihre Anfrage!"
-                         
+                                ,"first_name": "Vorname (Erforderlich)",
+        "last_name": "Nachname (Erforderlich)",
+        "Email": "Ihre E-Mail (Erforderlich)",
+        "mobile": "Mobiltelefon (Erforderlich)",
+        "address": "Adresse",
+        "postcode": "Postleitzahl",
+        "location": "Standort",
+        "brand": "Marke (Erforderlich)",
+        "model": "Modell",
+        "vehicle_type": "Fahrzeugtyp",
+        "fuel": "Kraftstoffart (Erforderlich)",
+        "performance": "Leistung",
+        "gear_type": "Getriebetyp (Erforderlich)",
+        "last_MFK": "Letzter MFK",
+        "mileage": "Kilometerstand",
+        "initial_registration": "Erstzulassung",
+        "color": "Farbe",
+        "doors": "Anzahl der Türen",
+        "message": "Ihre Nachricht",
+        "asking_price": "Angebotspreis",
+        "currency": "Währung",
+        "Displacement": "Hubraum (Ccm)",
+        "image1": "Bild 1",
+        "image2": "Bild 2",
+        "image3": "Bild 3",
+        "image4": "Bild 4"
                             
                             },
                             de: {
+                                "home-link": "Startseite",
+        "car-purchase-link": "Auto Kaufformular",
+        "language": "Sprache",
                                 "navbar-menu": "Navigationsmenü",
                                 "welcome-text": "Dein Auto, unser Bargeld - Clever verkaufen, glücklicher fahren!",
                                 "title": "Autos in Bargeld verwandeln, stressfrei",
@@ -571,39 +605,12 @@
                                 "text_condition-conditions": "Autoverkauf – Bedingungen",
                                 "text_condition-conditions-paragraph1": "Möchten Sie unseren Autoankauf in der Schweiz in Anspruch nehmen, benötigen wir lediglich einige Informationen zu Ihrem Auto. Die Marke, das Erstzulassungsdatum, die Laufleistung, die Bauart, die Art des Getriebes, das Modell, die Anzahl der Türen, die Art des Kraftstoffs und die Farbe gehören wahrscheinlich zu den wichtigsten Kriterien, die den Preis beeinflussen. Sie können all diese Daten in unser Online-Anfrageformular auf unserer Website eingeben und ein erstes Angebot erhalten. Das Angebot erhalten Sie dann innerhalb kürzester Zeit entweder telefonisch oder per E-Mail.",
                                 "text_condition-conditions-paragraph2": "Wie Sie sehen, gibt es nur wenige Bedingungen für einen reibungslosen Autoankauf in unserem Unternehmen. Es spielt nicht einmal eine Rolle, ob Sie in Zürich, Aargau, Basel, Bern, St. Gallen oder Luzern wohnen – Sie können uns online oder telefonisch von jedem Ort in der Schweiz aus erreichen. Selbstverständlich können Sie uns auch zusätzliche Details zu Ihrem Auto zusenden, die den Wert des Fahrzeugs beeinflussen könnten. Gerne können Sie uns auch Fotos schicken, damit wir einen ersten Eindruck von Ihrem Auto erhalten. Profitieren Sie also von einem schnellen, sicheren und unkomplizierten Autoankauf in der Schweiz und kontaktieren Sie uns aus Zürich, Aargau, Basel, Bern, St. Gallen oder Luzern. Wir sind auch gerne Ihr Ansprechpartner für die Kantone Appenzell, Freiburg, Genf, Glarus, Graubünden, Jura, Neuenburg, Nidwalden, Obwalden, Schaffhausen, Solothurn, Schwyz, Thurgau, Tessin, Uri, Waadt, Wallis und Zug – wir freuen uns auf Ihre Anfrage!"
-                                ,"first_name": "Vorname (Erforderlich)",
-                                "last_name": "Nachname (Erforderlich)",
-                                "Email": "Ihre E-Mail (Erforderlich)",
-                                "mobile": "Mobiltelefon (Erforderlich)",
-                                "address": "Adresse",
-                                "postcode": "Postleitzahl",
-                                "location": "Standort",
-                                "brand": "Marke (Erforderlich)",
-                                "model": "Modell",
-                                "vehicle_type": "Fahrzeugtyp",
-                                "fuel": "Kraftstoffart (Erforderlich)",
-                                "performance": "Leistung",
-                                "gear_type": "Getriebetyp (Erforderlich)",
-                                "last_MFK": "Letzter MFK",
-                                "mileage": "Kilometerstand",
-                                "initial_registration": "Erstzulassung",
-                                "color": "Farbe",
-                                "doors": "Anzahl der Türen",
-                                "message": "Ihre Nachricht",
-                                "asking_price": "Angebotspreis",
-                                "currency": "Währung",
-                                "Displacement": "Hubraum (Ccm)",
-                                "image1": "Bild 1",
-                                "image2": "Bild 2",
-                                "image3": "Bild 3",
-                                "image4": "Bild 4",
-                        
-                                "EUR":"EUR",
-                                "USD":"USD",
-                                "CHF":"CHF"  
                             },
                             
                             it: {
+                                "home-link": "Pagina principale",
+                                "car-purchase-link": "Modulo d'acquisto dell'auto",
+                                "language": "Lingua",
                                 "navbar-menu": "Menu di navigazione",
                                 "welcome-text": "La tua Auto, il Nostro Contante – Vendere in Modo Intelligente, Guidare più Felici!",
                                 "title": "Trasformare le Auto in Contanti, Senza Stress",
@@ -626,8 +633,8 @@
                                 "text_condition-conditions": "Acquisto auto – condizioni",
                                 "text_condition-conditions-paragraph1": "Se desideri usufruire del nostro servizio di acquisto auto in Svizzera, abbiamo bisogno solo di alcune informazioni sulla tua auto. La marca, la data della prima immatricolazione, il chilometraggio, la struttura, il tipo di trasmissione, il modello, il numero di porte, il tipo di carburante e il colore sono probabilmente tra i criteri più importanti che influenzano il prezzo. Puoi inserire tutti questi dati nel nostro modulo di richiesta online sul nostro sito web e ricevere un'offerta iniziale. Riceverai l'offerta in tempi molto brevi, sia per telefono che per e-mail.",
                                 "text_condition-conditions-paragraph2": "Come puoi vedere, ci sono solo poche condizioni per un acquisto auto senza problemi nella nostra azienda. Non importa nemmeno se vivi a Zurigo, Argovia, Basilea, Berna, San Gallo o Lucerna: puoi raggiungerci online o per telefono da qualsiasi parte in Svizzera. Naturalmente, puoi anche inviarci ulteriori dettagli sulla tua auto che potrebbero influenzare il suo valore. Se lo desideri, puoi inviarci anche delle foto in modo che possiamo avere una prima impressione della tua auto. Quindi, approfitta di un acquisto auto rapido, sicuro e facile in Svizzera e contattaci da Zurigo, Argovia, Basilea, Berna, San Gallo o Lucerna. Siamo anche lieti di essere il tuo punto di contatto per i cantoni di Appenzell, Friburgo, Ginevra, Glarona, Grigioni, Giura, Neuchâtel, Nidvaldo, Obvaldo, Sciaffusa, Soletta, Svitto, Turgovia, Ticino, Uri, Vaud, Vallese e Zugo - attendiamo con impazienza la tua richiesta!",
-                                "first_name": "Nome (Obbligatorio)",
-                                "last_name": "Cognome (Obbligatorio)",
+                                "nome": "Nome (Obbligatorio)",
+                                "cognome": "Cognome (Obbligatorio)",
                                 "Email": "Tuo Indirizzo Email (Obbligatorio)",
                                 "mobile": "Numero di Telefono (Obbligatorio)",
                                 "address": "Indirizzo",
@@ -651,10 +658,8 @@
                                 "image1": "Immagine 1",
                                 "image2": "Immagine 2",
                                 "image3": "Immagine 3",
-                                "image4": "Immagine 4",
-                                "EUR":"EUR",
-                                "USD":"USD",
-                                "CHF":"CHF"  
+                                "image4": "Immagine 4"
+                            
                             
                             
                             }
@@ -673,136 +678,55 @@
                                 }, 10);
                             }
                         }
-                        
+                
                         // Store the initial language
-                        const initialLanguage = 'en';
-                        
-                        // Translate elements to the initial language
-                        function translateToInitialLanguage() {
-                            translateText('title', initialLanguage);
-                            translateText('service-paragraph', initialLanguage);
-                            translateText('servicetitle', initialLanguage);
-                            translateText('ourline', initialLanguage);
-                            translateText('offer', initialLanguage);
-                            translateText('Deal', initialLanguage);
-                            translateText('Cash-payment', initialLanguage);
-                            translateText('Cash-payment-subtitle', initialLanguage);
-                            translateText('Collection', initialLanguage);
-                            translateText('welcome-text', initialLanguage);
-                            translateText('Collection-subtitle', initialLanguage);
-                            translateText('Deal-subtitle', initialLanguage);
-                            translateText('offer-subtitle', initialLanguage);
-                            translateText('condition-title', initialLanguage);
-                            translateText('text_condition-paragraph1', initialLanguage);
-                            translateText('text_condition-advantages', initialLanguage);
-                            translateText('text_condition-advantages-paragraph1', initialLanguage);
-                            translateText('text_condition-advantages-paragraph2', initialLanguage);
-                            translateText('text_condition-conditions', initialLanguage);
-                            translateText('text_condition-conditions-paragraph1', initialLanguage);
-                            translateText('text_condition-conditions-paragraph2', initialLanguage);
-                            translateText('first_name', initialLanguage);       
-                            translateText('last_name', initialLanguage);       
-                            translateText('Email', initialLanguage);       
-                            translateText('mobile', initialLanguage);       
-                            translateText('address', initialLanguage);       
-                            translateText('postcode', initialLanguage);       
-                            translateText('location', initialLanguage);       
-                            translateText('brand', initialLanguage);       
-                            translateText('model', initialLanguage);       
-                            translateText('vehicle_type', initialLanguage);       
-                            translateText('fuel', initialLanguage);       
-                            translateText('performance', initialLanguage);       
-                            translateText('gear_type', initialLanguage);       
-                            translateText('last_MFK', initialLanguage);       
-                            translateText('mileage', initialLanguage);       
-                            translateText('initial_registration', initialLanguage);       
-                            translateText('color', initialLanguage);       
-                            translateText('doors', initialLanguage);       
-                            translateText('message', initialLanguage);       
-                            translateText('asking_price', initialLanguage);       
-                            translateText('currency', initialLanguage);       
-                            translateText('Displacement', initialLanguage);       
-                            translateText('image1', initialLanguage);       
-                            translateText('image2', initialLanguage);       
-                            translateText('image3', initialLanguage);       
-                            translateText('image4', initialLanguage);       
-                            translateText('USD', initialLanguage);       
-                            translateText('EUR', initialLanguage);       
-                            translateText('CHF', initialLanguage);       
-                            
-                        
+                        let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+                
+                        // Function to set the selected language and translate elements
+                        function setLanguage(language) {
+                            localStorage.setItem('selectedLanguage', language);
+                            selectedLanguage = language;
+                            translateElements(language);
                         }
-                        
-                        // Translate elements to the initial language initially
-                        translateToInitialLanguage();
-                        
-                        // Translate elements based on the selected language
+                
+                        // Translate elements to the selected language
+                        function translateElements(language) {
+                            // Add the translation of each element here
+                            const elementsToTranslate = [
+                                'title', 'service-paragraph', 'servicetitle', 'ourline', 'offer', 'Deal',
+                                'Cash-payment', 'Cash-payment-subtitle', 'Collection', 'welcome-text', 'Collection-subtitle',
+                                'Deal-subtitle', 'offer-subtitle', 'condition-title', 'text_condition-paragraph1',
+                                'text_condition-advantages', 'text_condition-advantages-paragraph1', 'text_condition-advantages-paragraph2',
+                                'text_condition-conditions', 'text_condition-conditions-paragraph1', 'text_condition-conditions-paragraph2',
+                                'first_name', 'last_name', 'Email', 'mobile', 'address', 'postcode', 'location', 'brand',
+                                'model', 'vehicle_type', 'fuel', 'performance', 'gear_type', 'last_MFK', 'mileage',
+                                'initial_registration', 'color', 'doors', 'message', 'asking_price', 'currency', 'Displacement',
+                                'image1', 'image2', 'image3', 'image4', 'USD', 'EUR', 'CHF','home-link','car-purchase-link','language'
+                            ];
+                
+                            elementsToTranslate.forEach(elementId => {
+                                translateText(elementId, language);
+                            });
+                        }
+                
+                        // Initialize the language based on the selected language or use the initial language if none is set
+                        translateElements(selectedLanguage);
+                
+                        // Translate elements based on the selected language when a language button is clicked
                         const languageButtons = document.querySelectorAll('.dropdown-menu li');
                         languageButtons.forEach(button => {
                             button.addEventListener('click', function () {
                                 const language = this.id === 'switch-to-english' ? 'en' : this.id === 'switch-to-french' ? 'fr' : this.id === 'switch-to-italy' ? 'it' : this.id === 'switch-to-german' ? 'ge' : 'de';
-                                translateText('title', language);
-                                translateText('service-paragraph', language);
-                                translateText('servicetitle', language);
-                                translateText('ourline', language);
-                                translateText('offer', language);
-                                translateText('Deal', language);
-                                translateText('Cash-payment', language);
-                                translateText('Cash-payment-subtitle', language);
-                                translateText('Collection', language);
-                                translateText('welcome-text', language);
-                                translateText('Collection-subtitle', language);
-                                translateText('Deal-subtitle', language);
-                                translateText('offer-subtitle', language);
-                                translateText('condition-title', language);
-                                translateText('text_condition-paragraph1', language);
-                                translateText('text_condition-advantages', language);
-                                translateText('text_condition-advantages-paragraph1', language);
-                                translateText('text_condition-advantages-paragraph2', language);
-                                translateText('text_condition-conditions', language);
-                                translateText('text_condition-conditions-paragraph1', language);
-                                translateText('text_condition-conditions-paragraph2', language);
-
-
-                                translateText('first_name', language);
-                                translateText('last_name', language);
-                                translateText('Email', language);
-                                translateText('mobile', language);
-                                translateText('address', language);
-                                translateText('postcode', language);
-                                translateText('location', language);
-                                translateText('brand', language);
-                                translateText('model', language);
-                                translateText('vehicle_type', language);
-                                translateText('fuel', language);
-                                translateText('performance', language);
-                                translateText('gear_type', language);
-                                translateText('last_MFK', language);
-                                translateText('mileage', language);
-                                translateText('initial_registration', language);
-                                translateText('color', language);
-                                translateText('doors', language);
-                                translateText('message', language);
-                                translateText('asking_price', language);
-                                translateText('currency', language);
-                                translateText('Displacement', language);
-                                translateText('image1', language);
-                                translateText('image2', language);
-                                translateText('image3', language);
-                                translateText('image4', language);
-                                translateText('USD', language);
-                                translateText('EUR', language);
-                                translateText('CHF', language);
-                               
-                                
-                                if (language === initialLanguage) {
-                                    // Revert to the initial language
-                                    translateToInitialLanguage();
+                                setLanguage(language);
+                
+                                if (language === 'en') {
+                                    // If the selected language is English, you can also remove the selected language from storage
+                                    localStorage.removeItem('selectedLanguage');
                                 }
                             });
-                        });});
+                        });
+                    });
                 </script>
-    
 
     </body>
 	

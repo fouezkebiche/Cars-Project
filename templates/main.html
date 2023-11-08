@@ -198,22 +198,22 @@
 				            <!-- Collect the nav links, forms, and other content for toggling -->
 				            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
 				                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-									<li class="scroll active" id="home-link"><a href="{% url "home" %}">home</a></li>
-									<li class="scroll" id="car-purchase-link"><a href="{% url "contact_us_form" %}">Car purchase form</a></li>				                    {% comment %} <li class="scroll"><a href="#brand">brands</a></li> {% endcomment %}
+									<li class="scroll active" ><a href="{% url "home" %}" id="home-link">Home</a></li>
+									<li class="scroll" ><a href="{% url "contact_us_form" %}" id="car-purchase-link">Car purchase form</a></li>				                    {% comment %} <li class="scroll"><a href="#brand">brands</a></li> {% endcomment %}
 
 													                    {% comment %} <li class="scroll"><a href="#service">service</a></li> {% endcomment %}
 				                    {% comment %} <li class="scroll"><a href="#featured-cars">featured cars</a></li> {% endcomment %}
 				                    {% comment %} <li class="scroll"><a href="#contact">contact</a></li> {% endcomment %}	
 									<li class="dropdown language-buttons">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-											Language <b class="caret"></b>
+											<span id="language" style="font-size: large; ">Language</span>  <b class="caret"></b>
 										</a>
 										<ul class="dropdown-menu">
 											<li id="switch-to-english"><a href="#">English</a></li><br>
 											<li id="switch-to-french"><a href="#">French</a></li><br>
-											<li id="switch-to-deutsh"><a href="#">Dutch</a></li>
+											<li id="switch-to-deutsh"><a href="#">German</a></li>
 											<br>
-											<li id="switch-to-italy"><a href="#">italy</a></li>
+											<li id="switch-to-italy"><a href="#">Italian</a></li>
 
                 						</ul>
 									</li>
@@ -306,7 +306,7 @@
 			</section>
 			
 			<div class="text_condition" style="display: flex; flex-direction: column; justify-content: space-around;width: 100%;margin:2%;word-break: break-all;">
-				<h2 id="condition-title mb-5" style="text-align: justify;  margin-bottom: 1%;width: 90%; font-size: xx-large; word-break: keep-all; "><strong style="text-align: center;">Your specialist in car purchasing in Zurich, Aargau, Basel, Bern, St. Gallen, Lucerne and throughout Switzerland</strong></h2>
+				<h2 id="condition-title" style="text-align: justify;  margin-bottom: 1%;width: 90%; font-size: xx-large; word-break: keep-all; "><strong style="text-align: center;">Your specialist in car purchasing in Zurich, Aargau, Basel, Bern, St. Gallen, Lucerne and throughout Switzerland</strong></h2>
 				<br/>
 				<p id="text_condition-paragraph1" style="margin-bottom: 1%;width: 90%;">
 					<font style="vertical-align: inherit;"><font style="vertical-align: inherit; ">Anyone who wants to sell their car is often at a loss. </font><font style="vertical-align: inherit;">Where can I find solvent and serious buyers? </font><font style="vertical-align: inherit;">How do I not sell my car short? </font><font style="vertical-align: inherit;">Do I even have time to take care of selling my car myself? </font><font style="vertical-align: inherit;">All of these questions are easily answered with our car purchase, because here you will find reputable buyers who will buy your car at a reasonable price and thus save you time. </font><font style="vertical-align: inherit;">Whether Zurich, Aargau, Basel, Bern, St. Gallen or Lucerne – we work for you throughout Switzerland and are therefore always exactly where you need us.</font></font>
@@ -484,7 +484,7 @@
 		
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-		<script>
+    <script>
 			document.addEventListener("DOMContentLoaded", function () {
 				const homeLink = document.getElementById("home-link");
 				const carPurchaseLink = document.getElementById("car-purchase-link");
@@ -505,6 +505,9 @@
 
 					const translations = {
 						en: {
+							"home-link":"Home",
+							"car-purchase-link":"Car purchase form",
+							"language":"Language",
 							"navbar-menu": "Navigation Menu",
 							"welcome-text": "Your Car, Our Cash – Sell Smarter, Drive Happier!",
 							"title": "Turning Cars into Cash, Hassle-Free",
@@ -556,6 +559,9 @@
 												
 						},
 						fr: {
+							"home-link": "Accueil",
+    "car-purchase-link": "Formulaire d'achat de voiture",
+    "language": "Langue",
 							"navbar-menu": "Menu de navigation",
 							"welcome-text": "Votre voiture, notre argent – ​​Vendez plus intelligemment, conduisez plus heureux !",
 							"title": "Transformer les voitures en argent, sans tracas",
@@ -607,6 +613,9 @@
 							"image4": "Image 4"
 						},
 						ge: {
+							"home-link": "Startseite",
+    "car-purchase-link": "Auto Kaufformular",
+    "language": "Sprache",
 							"navbar-menu": "Navigationsmenü",
 							"welcome-text": "Ihr Auto, unser Bargeld - Schlauer verkaufen, glücklicher fahren!",
 							"title": "Autos einfach und bequem in Bargeld verwandeln",
@@ -658,6 +667,9 @@
 						
 						},
 						de: {
+							"home-link": "Startseite",
+    "car-purchase-link": "Auto Kaufformular",
+    "language": "Sprache",
 							"navbar-menu": "Navigationsmenü",
 							"welcome-text": "Dein Auto, unser Bargeld - Clever verkaufen, glücklicher fahren!",
 							"title": "Autos in Bargeld verwandeln, stressfrei",
@@ -683,6 +695,9 @@
 						},
 						
 						it: {
+							"home-link": "Pagina principale",
+							"car-purchase-link": "Modulo d'acquisto dell'auto",
+							"language": "Lingua",
 							"navbar-menu": "Menu di navigazione",
 							"welcome-text": "La tua Auto, il Nostro Contante – Vendere in Modo Intelligente, Guidare più Felici!",
 							"title": "Trasformare le Auto in Contanti, Senza Stress",
@@ -750,71 +765,55 @@
 							}, 10);
 						}
 					}
-					
+			
 					// Store the initial language
-					const initialLanguage = 'en';
-					
-					// Translate elements to the initial language
-					function translateToInitialLanguage() {
-						translateText('title', initialLanguage);
-						translateText('service-paragraph', initialLanguage);
-						translateText('servicetitle', initialLanguage);
-						translateText('ourline', initialLanguage);
-						translateText('offer', initialLanguage);
-						translateText('Deal', initialLanguage);
-						translateText('Cash-payment', initialLanguage);
-						translateText('Cash-payment-subtitle', initialLanguage);
-						translateText('Collection', initialLanguage);
-						translateText('welcome-text', initialLanguage);
-						translateText('Collection-subtitle', initialLanguage);
-						translateText('Deal-subtitle', initialLanguage);
-						translateText('offer-subtitle', initialLanguage);
-						translateText('condition-title', initialLanguage);
-						translateText('text_condition-paragraph1', initialLanguage);
-						translateText('text_condition-advantages', initialLanguage);
-						translateText('text_condition-advantages-paragraph1', initialLanguage);
-						translateText('text_condition-advantages-paragraph2', initialLanguage);
-						translateText('text_condition-conditions', initialLanguage);
-						translateText('text_condition-conditions-paragraph1', initialLanguage);
-						translateText('text_condition-conditions-paragraph2', initialLanguage);
+					let selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+			
+					// Function to set the selected language and translate elements
+					function setLanguage(language) {
+						localStorage.setItem('selectedLanguage', language);
+						selectedLanguage = language;
+						translateElements(language);
 					}
-					
-					// Translate elements to the initial language initially
-					translateToInitialLanguage();
-					
-					// Translate elements based on the selected language
+			
+					// Translate elements to the selected language
+					function translateElements(language) {
+						// Add the translation of each element here
+						const elementsToTranslate = [
+							'title', 'service-paragraph', 'servicetitle', 'ourline', 'offer', 'Deal',
+							'Cash-payment', 'Cash-payment-subtitle', 'Collection', 'welcome-text', 'Collection-subtitle',
+							'Deal-subtitle', 'offer-subtitle', 'condition-title', 'text_condition-paragraph1',
+							'text_condition-advantages', 'text_condition-advantages-paragraph1', 'text_condition-advantages-paragraph2',
+							'text_condition-conditions', 'text_condition-conditions-paragraph1', 'text_condition-conditions-paragraph2',
+							'first_name', 'last_name', 'Email', 'mobile', 'address', 'postcode', 'location', 'brand',
+							'model', 'vehicle_type', 'fuel', 'performance', 'gear_type', 'last_MFK', 'mileage',
+							'initial_registration', 'color', 'doors', 'message', 'asking_price', 'currency', 'Displacement',
+							'image1', 'image2', 'image3', 'image4', 'USD', 'EUR', 'CHF','home-link','car-purchase-link','language'
+						];
+			
+						elementsToTranslate.forEach(elementId => {
+							translateText(elementId, language);
+						});
+					}
+			
+					// Initialize the language based on the selected language or use the initial language if none is set
+					translateElements(selectedLanguage);
+			
+					// Translate elements based on the selected language when a language button is clicked
 					const languageButtons = document.querySelectorAll('.dropdown-menu li');
 					languageButtons.forEach(button => {
 						button.addEventListener('click', function () {
 							const language = this.id === 'switch-to-english' ? 'en' : this.id === 'switch-to-french' ? 'fr' : this.id === 'switch-to-italy' ? 'it' : this.id === 'switch-to-german' ? 'ge' : 'de';
-							translateText('title', language);
-							translateText('service-paragraph', language);
-							translateText('servicetitle', language);
-							translateText('ourline', language);
-							translateText('offer', language);
-							translateText('Deal', language);
-							translateText('Cash-payment', language);
-							translateText('Cash-payment-subtitle', language);
-							translateText('Collection', language);
-							translateText('welcome-text', language);
-							translateText('Collection-subtitle', language);
-							translateText('Deal-subtitle', language);
-							translateText('offer-subtitle', language);
-							translateText('condition-title', language);
-							translateText('text_condition-paragraph1', language);
-							translateText('text_condition-advantages', language);
-							translateText('text_condition-advantages-paragraph1', language);
-							translateText('text_condition-advantages-paragraph2', language);
-							translateText('text_condition-conditions', language);
-							translateText('text_condition-conditions-paragraph1', language);
-							translateText('text_condition-conditions-paragraph2', language);
-							
-							if (language === initialLanguage) {
-								// Revert to the initial language
-								translateToInitialLanguage();
+							setLanguage(language);
+			
+							if (language === 'en') {
+								// If the selected language is English, you can also remove the selected language from storage
+								localStorage.removeItem('selectedLanguage');
 							}
 						});
-					});});
+					});
+				});
+			</script>
 			</script>
 
 			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
