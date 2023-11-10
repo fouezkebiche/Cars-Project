@@ -168,7 +168,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group ">
-                                <label for="email" id="email">Your Email (Required)</label>
+                                <label for="email" id="Email">Your Email (Required)</label>
                                 <input type="email" name="Email" class="form-control" >
                             </div>
                             
@@ -605,6 +605,33 @@
                                 "text_condition-conditions": "Autoverkauf – Bedingungen",
                                 "text_condition-conditions-paragraph1": "Möchten Sie unseren Autoankauf in der Schweiz in Anspruch nehmen, benötigen wir lediglich einige Informationen zu Ihrem Auto. Die Marke, das Erstzulassungsdatum, die Laufleistung, die Bauart, die Art des Getriebes, das Modell, die Anzahl der Türen, die Art des Kraftstoffs und die Farbe gehören wahrscheinlich zu den wichtigsten Kriterien, die den Preis beeinflussen. Sie können all diese Daten in unser Online-Anfrageformular auf unserer Website eingeben und ein erstes Angebot erhalten. Das Angebot erhalten Sie dann innerhalb kürzester Zeit entweder telefonisch oder per E-Mail.",
                                 "text_condition-conditions-paragraph2": "Wie Sie sehen, gibt es nur wenige Bedingungen für einen reibungslosen Autoankauf in unserem Unternehmen. Es spielt nicht einmal eine Rolle, ob Sie in Zürich, Aargau, Basel, Bern, St. Gallen oder Luzern wohnen – Sie können uns online oder telefonisch von jedem Ort in der Schweiz aus erreichen. Selbstverständlich können Sie uns auch zusätzliche Details zu Ihrem Auto zusenden, die den Wert des Fahrzeugs beeinflussen könnten. Gerne können Sie uns auch Fotos schicken, damit wir einen ersten Eindruck von Ihrem Auto erhalten. Profitieren Sie also von einem schnellen, sicheren und unkomplizierten Autoankauf in der Schweiz und kontaktieren Sie uns aus Zürich, Aargau, Basel, Bern, St. Gallen oder Luzern. Wir sind auch gerne Ihr Ansprechpartner für die Kantone Appenzell, Freiburg, Genf, Glarus, Graubünden, Jura, Neuenburg, Nidwalden, Obwalden, Schaffhausen, Solothurn, Schwyz, Thurgau, Tessin, Uri, Waadt, Wallis und Zug – wir freuen uns auf Ihre Anfrage!"
+                         
+                                ,"first_name": "Vorname (Erforderlich)",
+        "last_name": "Nachname (Erforderlich)",
+        "Email": "Ihre E-Mail (Erforderlich)",
+        "mobile": "Mobiltelefon (Erforderlich)",
+        "address": "Adresse",
+        "postcode": "Postleitzahl",
+        "location": "Standort",
+        "brand": "Marke (Erforderlich)",
+        "model": "Modell",
+        "vehicle_type": "Fahrzeugtyp",
+        "fuel": "Kraftstoffart (Erforderlich)",
+        "performance": "Leistung",
+        "gear_type": "Getriebetyp (Erforderlich)",
+        "last_MFK": "Letzter MFK",
+        "mileage": "Kilometerstand",
+        "initial_registration": "Erstzulassung",
+        "color": "Farbe",
+        "doors": "Anzahl der Türen",
+        "message": "Ihre Nachricht",
+        "asking_price": "Angebotspreis",
+        "currency": "Währung",
+        "Displacement": "Hubraum (Ccm)",
+        "image1": "Bild 1",
+        "image2": "Bild 2",
+        "image3": "Bild 3",
+        "image4": "Bild 4"
                             },
                             
                             it: {
@@ -716,7 +743,7 @@
                         const languageButtons = document.querySelectorAll('.dropdown-menu li');
                         languageButtons.forEach(button => {
                             button.addEventListener('click', function () {
-                                const language = this.id === 'switch-to-english' ? 'en' : this.id === 'switch-to-french' ? 'fr' : this.id === 'switch-to-italy' ? 'it' : this.id === 'switch-to-german' ? 'ge' : 'de';
+                                const language = this.id === 'switch-to-english' ? 'en' : this.id === 'switch-to-french' ? 'fr' : this.id === 'switch-to-italy' ? 'it' : this.id === 'switch-to-deutsh' ? 'de' : 'en';
                                 setLanguage(language);
                 
                                 if (language === 'en') {
